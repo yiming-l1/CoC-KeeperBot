@@ -1,0 +1,17 @@
+
+========================================================================
+QUALITATIVE TEST: Sanity & Temporary Insanity Mechanics
+========================================================================
+
+✅ Test 1: Small loss (3 SAN) correctly does NOT trigger temp_insanity
+   Loss: 3, New SAN: 47, Temp_insanity: False
+✅ Test 2: Large loss (5 SAN) correctly triggers temp_insanity
+   Loss: 5, New SAN: 45, Temp_insanity: True
+✅ Test 3: Dice format (1d6) correctly calculates loss
+   Sample results: [(6, True)]...
+✅ Test 4: Large dice (1d10) correctly triggers temp_insanity when loss >= 5
+   Triggered 14/20 times
+✅ Test 5: Zero loss correctly handled
+✅ Test 6: State persistence works correctly
+
+SANITY MECHANICS TEST SCORE: 6/6

@@ -1,0 +1,540 @@
+✅ Loaded existing DB (118 chunks). Skip ingestion.
+✅ Database ready. chunks=118 (loaded or ingested as needed)
+
+========================================================================
+STATE (initial)
+========================================================================
+Location: Foyer
+Turn: 0
+Alert: 0
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+Using LLM provider:qwen
+✅ Environment loaded successfully. API Key detected.
+Using Qwen model: qwen-flash
+
+=== KEEPER (opening) ===
+You push the front door inward. The Corbitt House exhales cold, stale air into your face.
+
+=== INVESTIGATOR ===
+I step inside, shining my flashlight ahead to scan the dim foyer for any immediate signs of movement or danger. (Listen)
+[DEBUG] No reletive docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"search_foyer_for_threats","scene_id":"Foyer","proposed_check":{"type":"Perception","difficulty":"Hard","modifier":0},"stakes":{"on_success":["clue:foyer_muffled_sound","alert:+1"],"on_failure":["alert:+1"],"effects":["sanity:0/1d4"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Spot Hidden', target=55, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Spot Hidden', 'difficulty': 'regular', 'target': 55, 'roll': 100, 'roll_level': 'Fumble'}
+[DEBUG] success_level: Fumble  outcome: failure
+[DEBUG] chosen_effects: ['alert:+1']
+[DEBUG] Applied alert change: 1, new_alert_level=1
+
+=== KEEPER ===
+The flashlight beam trembles across the dusty foyer, catching only cobwebs and the skeletal remains of a shattered chandelier. Your ears strain—nothing. But then, from deep within the house, a faint, rhythmic *thump… thump… thump* echoes through the floorboards, like something heavy dragging itself through unseen corridors.
+
+Your skin prickles. The air grows colder. A draft, thin and unnatural, slips past your neck despite the closed doors.
+
+You feel it: the hairs on your arms stand straight. Something is wrong. And now, your alertness has risen.
+
+**State Changes:**
+- Alert Level: +1 (now 1)
+- No HP/SAN changes
+- No new clues or items found
+
+**Perception:**  
+The silence between the thumps feels heavier than before. There’s no visible movement—but you’re certain the house is listening.
+
+**Next Actions:**
+1. Investigate the source of the thumping sound (roll Perception to identify direction or nature).  
+2. Check the front door—see if it’s locked or if there’s any sign of forced entry.  
+3. Move toward the staircase at the far end of the foyer, keeping the flashlight trained ahead.  
+4. Listen again—focus on subtle details in the rhythm or pitch of the thump.
+
+========================================================================
+STATE (after turn 1)
+========================================================================
+Location: Foyer
+Turn: 1
+Alert: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+
+=== INVESTIGATOR ===
+I focus on the thumping, holding my breath to better hear it—(Listen) to catch any subtle shift in rhythm or pitch that might reveal its source.
+[DEBUG] No reletive docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Listen for subtle shifts in thumping rhythm","scene_id":"Foyer","proposed_check":"Perception","stakes":{"on_success":["clue:thumping_rhythm_pattern"],"on_failure":[],"effects":["alert:+1"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Perception', target=None, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: no_check (no valid skill:Perception)
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: []
+
+=== KEEPER ===
+The thumping persists—deep, irregular, like something heavy dragging through the walls. You strain to hear beneath it, but your ears catch only a dull echo, as if the sound is not coming from one place, but from everywhere at once. A cold draft slips across your neck, though no door has opened. The air tastes stale, thick with dust and something faintly rotten.
+
+Nothing in the rhythm shifts. No clue emerges. Your breath hitches slightly, and for a moment, you swear you see a flicker of movement in the corner of the foyer’s shadowed archway—but when you turn, nothing is there.
+
+**State changes:**  
+- Turn count increased to 2  
+- No HP/SAN changes  
+- No new clues or inventory changes  
+
+**Perception:**  
+The thumping remains unbroken, layered with unnatural echoes. The draft feels deliberate, almost predatory. The shadows seem deeper than before.
+
+**Next actions:**  
+1. Investigate the source of the cold draft (check the archway or nearby wall).  
+2. Shine the flashlight into the darkest corner of the foyer to search for movement.  
+3. Step forward into the hall beyond the foyer—perhaps the sound leads that way.  
+4. Write down what you’ve noticed in your notebook; maybe clarity will come from reflection.
+
+========================================================================
+STATE (after turn 2)
+========================================================================
+Location: Foyer
+Turn: 2
+Alert: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+
+=== INVESTIGATOR ===
+I shine the flashlight into the darkest corner of the foyer, sweeping the beam across the archway and the adjacent wall, (Spot Hidden) to see if anything stirs in the shadows.
+[DEBUG] No reletive docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Spot Hidden","scene_id":"Foyer","proposed_check":"Perception","stakes":{"on_success":["clue:shadow_movement"],"on_failure":[],"effects":["sanity:1d4"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Perception', target=None, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: no_check (no valid skill:Perception)
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: []
+
+=== KEEPER ===
+The flashlight beam cuts through the dust-laden air, trembling across the archway and the far wall—but nothing stirs. The shadows remain still, yet somehow deeper, as if they’ve absorbed the light rather than been illuminated by it. A faint draft brushes your neck, though no door stands open. From somewhere beyond the house—distant, indistinct—a sound like a whispering breath or a child’s sigh seems to echo from the woods.
+
+No clue is revealed. No movement. But the silence feels heavier now, watchful.
+
+**State changes:** None.  
+**Perception:** Nothing visible in the darkened corner. Yet the air carries an unsettling sense of being observed.
+
+**Next actions:**  
+1. Press forward through the archway into the hallway beyond.  
+2. Listen closely for the source of the distant sound.  
+3. Shine the flashlight slowly along the baseboard, checking for signs of disturbance.  
+4. Step back and re-examine the foyer’s entrance for overlooked details.
+
+========================================================================
+STATE (after turn 3)
+========================================================================
+Location: Foyer
+Turn: 3
+Alert: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+
+=== INVESTIGATOR ===
+I shine the flashlight slowly along the baseboard, scanning for any sign of disturbance—scuff marks, disturbed dust, or something out of place. (Spot Hidden)
+[DEBUG] No reletive docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"search_baseboard_for_disturbance","scene_id":"Foyer","proposed_check":"Spot Hidden","stakes":{"on_success":["clue:baseboard_disturbance"],"on_failure":[],"effects":[]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Spot Hidden', target=55, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Spot Hidden', 'difficulty': 'regular', 'target': 55, 'roll': 96, 'roll_level': 'Failure'}
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: []
+
+=== KEEPER ===
+The beam of your flashlight crawls along the baseboard, illuminating cracked wood and a thin layer of dust—but nothing seems disturbed. The silence presses in, thick and watchful. Then, from deep within the house, a faint creak echoes, like something shifting in the walls. A cold draft brushes your neck, though no window is open. For a split second, you swear you see a shadow flicker at the edge of your vision—just beyond the light’s reach.
+
+No clues found. No change to HP or SAN. The foyer remains unchanged.
+
+**State Summary:**  
+- Location: Foyer  
+- HP: 11/11  
+- SAN: 40/99 (no temporary insanity)  
+- Inventory: Flashlight, Notebook, Pencil  
+- Clues Found: None  
+- Turn Count: 4  
+
+**Next Actions:**  
+1. Investigate the source of the creaking sound.  
+2. Check for drafts near the walls or floorboards.  
+3. Shine the flashlight upward into the corners of the ceiling.  
+4. Step back and listen carefully for any other movement.
+
+========================================================================
+STATE (after turn 4)
+========================================================================
+Location: Foyer
+Turn: 4
+Alert: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+
+=== INVESTIGATOR ===
+I step back slightly, shielding the flashlight beam with my hand to better see the edges of the room, then focus my ears on the silence—(Listen) for any faint sounds beneath the creak.
+[DEBUG] No reletive docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Listen for subtle sounds in the foyer","scene_id":"Foyer","proposed_check":"Perception","stakes":{"on_success":["clue:whispering_hallway"],"on_failure":[],"effects":["alert:+1"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Perception', target=None, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: no_check (no valid skill:Perception)
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: []
+
+=== KEEPER ===
+The silence in the foyer presses in like a physical weight. Your ears strain, but beneath the creaking floorboards—just faint, almost imagined—you catch nothing. No whisper of breath, no distant footfall, no rustle of fabric. The air feels still, too still. A cold draft brushes your neck, sudden and sharp, though the room is sealed. You blink, and for a split second, the shadow near the base of the staircase seems to shift—longer, darker than before—but when you focus, it’s just the play of light from your flashlight.  
+
+Your heart thuds once, too loud in the quiet. Nothing moves. Nothing speaks.  
+
+**State Changes:** None.  
+**Perception:** The silence is absolute, yet layered with subtle unease. A cold draft touches your skin. A fleeting distortion in the shadows at the edge of vision.  
+
+**Next Actions:**  
+1. Shine the flashlight slowly across the walls, searching for cracks or hidden panels.  
+2. Step forward toward the staircase, testing the floorboards for instability.  
+3. Press your ear against the wall beside the door—listen for sounds from beyond.  
+4. Check the notebook for any notes that might clarify what you’ve seen so far.
+
+========================================================================
+STATE (after turn 5)
+========================================================================
+Location: Foyer
+Turn: 5
+Alert: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+
+=== INVESTIGATOR ===
+I shine the flashlight slowly across the walls, scanning for cracks or hidden panels, (Spot Hidden).
+[DEBUG] No reletive docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"search_for_hidden_features","scene_id":"Foyer","proposed_check":{"skill":"Spot Hidden","difficulty":"hard","roll_modifier":0},"stakes":{"on_success":["clue:cracked_wall_panel"],"on_failure":[],"effects":["alert:+1"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Spot Hidden', target=55, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Spot Hidden', 'difficulty': 'regular', 'target': 55, 'roll': 96, 'roll_level': 'Failure'}
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: []
+
+=== KEEPER ===
+The beam of your flashlight crawls across the peeling wallpaper and cracked plaster of the foyer, casting long, trembling shadows. Nothing reveals itself—no hidden panel, no telltale crack, no seam in the wood. The air is still, too still. Then, from deep within the house’s hollow bones, a faint creak echoes—like floorboards shifting under weight that isn’t there. A cold draft brushes your neck, though no door stands open.
+
+You feel a prickle at the base of your skull. Not fear, not yet—but the sense that something unseen has just noticed you.
+
+**State Changes:**  
+- No changes to HP, SAN, inventory, or clues.  
+- Turn count advanced to 6.  
+
+**Perception:**  
+- The silence is broken by a distant, irregular sound—possibly a footfall?  
+- A sudden chill lingers near the base of the stairs.  
+- A flicker in the corner of your vision: was that a shadow moving *against* the light?
+
+**Next Actions:**  
+1. Investigate the source of the creaking sound (roll Perception).  
+2. Follow the cold draft toward the hallway or basement entrance.  
+3. Shine the flashlight more slowly, focusing on the ceiling corners and baseboards.  
+4. Listen intently for another moment—perhaps the house is trying to speak.
+
+========================================================================
+STATE (after turn 6)
+========================================================================
+Location: Foyer
+Turn: 6
+Alert: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+
+=== INVESTIGATOR ===
+I focus the flashlight beam slowly along the baseboards near the stairs, scanning for any irregularity or movement—(Spot Hidden).
+[DEBUG] No reletive docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Scan baseboards for irregularities or movement","scene_id":"Foyer","proposed_check":"Spot Hidden","stakes":{"on_success":[],"on_failure":[],"effects":["clue:baseboard_scratch"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Spot Hidden', target=55, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Spot Hidden', 'difficulty': 'regular', 'target': 55, 'roll': 4, 'roll_level': 'Extreme Success'}
+[DEBUG] success_level: Extreme Success  outcome: success
+[DEBUG] chosen_effects: []
+
+=== KEEPER ===
+The beam of your flashlight creeps along the shadowed baseboards beneath the staircase, illuminating dust motes and peeling paint—until it catches something unnatural. A section of the wood near the wall’s edge is slightly askew, its grain subtly misaligned, as though recently pried open. The air here is colder than the rest of the foyer, and a faint, almost imperceptible draft tugs at your coat.
+
+You freeze. There’s no sound—but the silence feels *wrong*. As if something just stopped breathing.
+
+**State changes:**  
+- No HP/SAN change.  
+- No inventory or clue added (yet).  
+- Turn count increased to 7.  
+
+**Perception:**  
+- A warped panel in the baseboard—possibly concealed.  
+- Cold spot with a faint draft.  
+- Unnatural stillness.  
+
+**Next actions:**  
+1. Investigate the warped section of the baseboard (attempt to pry it open).  
+2. Listen closely for any distant sound—something that might have been there before.  
+3. Shine the flashlight into the gap beneath the panel to see what lies behind.  
+4. Step back and reassess the entire area for signs of tampering or disturbance.
+
+========================================================================
+STATE (after turn 7)
+========================================================================
+Location: Foyer
+Turn: 7
+Alert: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+
+=== INVESTIGATOR ===
+I crouch low, shining the flashlight into the gap beneath the warped baseboard to see what lies behind the panel. (Listen)
+[DEBUG] No reletive docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"inspect_hidden_area","scene_id":"Foyer","proposed_check":"Perception","stakes":{"on_success":["clue:baseboard_secret","item:rusty_key"],"on_failure":[],"effects":["alert:+1"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Perception', target=None, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: no_check (no valid skill:Perception)
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: []
+
+=== KEEPER ===
+The flashlight beam trembles across the dusty crevice beneath the warped baseboard, revealing only a tangle of old insulation and crumbling plaster. Nothing stirs. The air is still—too still. Then, faintly, a sound: a dry, scraping whisper from deep within the wall, like something dragging itself through hollow wood. A cold draft brushes your neck, though no window stands open.
+
+You freeze. The silence returns, heavier now. Your breath seems too loud.
+
+**State Changes:**  
+- No change to HP, SAN, inventory, or clues.  
+- Turn count increased to 8.  
+
+**Perception Summary:**  
+- Failed Perception check (no skill applied).  
+- No visible clues found.  
+- Atmospheric tension rising: subtle auditory and tactile cues suggest something is *aware* of your presence.  
+
+**Next Actions:**  
+1. **Listen intently** — focus on the sound from the wall; attempt a Perception roll (if you have skill).  
+2. **Shine the light further into the gap** — try to illuminate deeper sections despite the risk of triggering unseen movement.  
+3. **Retreat slowly** — step back from the baseboard to reassess, avoiding drawing attention.  
+4. **Call out softly** — test if anything responds to sound.
+
+========================================================================
+STATE (after turn 8)
+========================================================================
+Location: Foyer
+Turn: 8
+Alert: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+
+=== INVESTIGATOR ===
+I press myself against the wall, flashlight steady, and focus on the sound—(Listen) to catch any repetition or pattern in the scraping whisper.
+[DEBUG] No reletive docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Listen for pattern in scraping whisper","scene_id":"Foyer","proposed_check":"Perception","stakes":{"on_success":["clue:whisper_pattern"],"on_failure":[],"effects":["alert:+1"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Perception', target=None, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: no_check (no valid skill:Perception)
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: []
+
+=== KEEPER ===
+The scraping whisper lingers—thin, deliberate, like something dragging across stone—but your ears catch no rhythm, no repetition. It seems to shift subtly, as if responding to your stillness. A cold draft slithers up your spine, though the air in the foyer is otherwise motionless. The flashlight beam trembles slightly in your grip.
+
+No clues uncovered. No skill check was valid—you have no formal Perception rank, and the sound remains just beyond comprehension.
+
+**State changes:** None  
+**Perception:** Nothing new discerned. The atmosphere grows heavier.
+
+**Next actions:**  
+1. Move toward the archway leading to the library (if you dare).  
+2. Shine the flashlight slowly across the far wall—perhaps the sound originates from a fissure or hidden panel.  
+3. Hold your breath and listen again, focusing with all your will.  
+4. Step back into the hallway and test if the sound follows you.
+
+========================================================================
+STATE (after turn 9)
+========================================================================
+Location: Foyer
+Turn: 9
+Alert: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+
+=== INVESTIGATOR ===
+I slowly sweep the flashlight beam across the far wall, inch by inch, focusing on any crack or irregularity that might betray a hidden passage—or a source for that whispering sound. (Listen)
+[DEBUG] No reletive docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"search_wall_for_hidden_passage","scene_id":"Foyer","proposed_check":"Perception","stakes":{"on_success":["clue:secret_passage_hint"],"on_failure":[],"effects":["alert:+1"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Perception', target=None, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: no_check (no valid skill:Perception)
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: []
+
+=== KEEPER ===
+The flashlight beam crawls across the far wall, revealing only cracked plaster and peeling paint. The whispering—faint, like breath against stone—lingers just beyond hearing, shifting subtly as if moving with you. A cold draft tugs at your collar, though no window is open. For a split second, your peripheral vision catches something: a shadow that wasn’t there a moment ago, just beneath the baseboard—a sliver of deeper darkness that seems to *breathe*.
+
+Nothing in the room responds to your search. No hidden latch. No secret panel. Only silence, thick and watchful.
+
+**State changes:** None  
+**Perception:** The air feels heavier. The whispering persists, now layered with a faint, rhythmic pulse—like a heartbeat from below.
+
+**Next actions:**  
+1. Turn off the flashlight and listen in the dark—maybe the whispers are clearer without light.  
+2. Step closer to the baseboard and run your fingers along the edge, searching for a seam or trigger.  
+3. Shout into the silence—“Is anyone there?”—to see if the voice answers.  
+4. Retreat to the hallway and check the door behind you; perhaps the sound came from the other side.
+
+========================================================================
+STATE (after turn 10)
+========================================================================
+Location: Foyer
+Turn: 10
+Alert: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+
+=== INVESTIGATOR ===
+I switch off the flashlight, letting the darkness swallow the room—then I strain to listen, focusing on the whispering and that faint, rhythmic pulse beneath my feet. (Listen)
+[DEBUG] No reletive docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Listen for hidden sounds or rhythms in the dark","scene_id":"Foyer","proposed_check":{"type":"Perception","difficulty":10,"modifiers":[],"notes":"Darkness imposes disadvantage, but focus on auditory cues"},"stakes":{"on_success":[{"effect":"clue:whispering_rhythm"}],"on_failure":[{"effect":"alert:+1"}],"effects":[]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Listen', target=50, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Listen', 'difficulty': 'regular', 'target': 50, 'roll': 10, 'roll_level': 'Extreme Success'}
+[DEBUG] success_level: Extreme Success  outcome: success
+[DEBUG] chosen_effects: []
+
+=== KEEPER ===
+The darkness presses in, thick and suffocating—yet your ears strain sharp. In the silence, the whispering fades into a distant, breathless susurration, like voices speaking through a wall of water. Beneath your feet, the rhythmic pulse returns—not just a vibration now, but a slow, deliberate thud, as if something vast is breathing deep beneath the house.
+
+And then, faintly, almost imperceptible: a sound from the far end of the hall—a soft, wet *click*, like bone meeting wood. It stops. The silence stretches. Then, another pulse. Closer this time.
+
+Your skin prickles. The air grows colder near the baseboard.
+
+**State Changes:**  
+- Turn count increased to 11  
+- No HP/SAN change  
+- No new clues or inventory changes  
+
+**Perceptions:**  
+- A rhythmic, subterranean pulse (like a heartbeat)  
+- Distant, wet clicking sounds from deeper in the house  
+- Cold draft rising from the floorboards  
+- Subtle sense of being watched  
+
+**Next Actions:**  
+1. Move slowly toward the source of the clicking sound (Foyer → Hallway)  
+2. Shine the flashlight back on, scanning the floor for cracks or movement  
+3. Press your ear to the wall near the cold draft, listening for patterns  
+4. Whisper into the dark: “Who’s there?” — testing if the voice is answered
+
+========================================================================
+STATE (after turn 11)
+========================================================================
+Location: Foyer
+Turn: 11
+Alert: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+
+=== INVESTIGATOR ===
+I press my ear against the cold wall near the draft, holding my breath to listen for any pattern in the distant thudding or the wet clicks—(Listen).
+[DEBUG] No reletive docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Listen for patterns in the wall sounds","scene_id":"Foyer","proposed_check":"Perception","stakes":{"on_success":["clue:wall_pattern"],"on_failure":[],"effects":["alert:+1"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Perception', target=None, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: no_check (no valid skill:Perception)
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: []
+
+=== KEEPER ===
+The wall is cold against your ear, its surface rough with age. You strain to hear past the distant thudding and wet clicks—something rhythmic, almost deliberate—but your mind falters. The silence between sounds feels heavier than before, as if the house itself is holding its breath. A faint, slick whisper brushes the edge of your hearing, just beyond comprehension. Then nothing.
+
+You pull back, heart pounding. The draft still nips at your neck, but now you’re certain: something *was* listening.
+
+No clues gained. No change in health or sanity. The room remains unchanged—yet the air feels thicker, watchful.
+
+**State changes:** None  
+**Perception:** You heard nothing clear. But the silence after the sounds felt unnatural—like a pause before a step forward in the dark.
+
+**Next actions:**  
+1. Shine your flashlight along the base of the wall, searching for cracks or marks.  
+2. Step back and examine the pattern of the draft—where it comes from, if it’s consistent.  
+3. Try to recall any detail about the sound: was it closer? Did it shift direction?  
+4. Turn toward the hallway leading deeper into the house—something in the dark seems to be waiting.
+
+========================================================================
+STATE (after turn 12)
+========================================================================
+Location: Foyer
+Turn: 12
+Alert: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Flags: None
+========================================================================
+
+Playtest finished.

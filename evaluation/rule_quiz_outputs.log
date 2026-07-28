@@ -1,0 +1,71 @@
+/opt/anaconda3/envs/ml4nlp-proj/lib/python3.12/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/opt/anaconda3/envs/ml4nlp-proj/lib/python3.12/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+STARTING RULE QUIZ (RAG RETRIEVAL TEST)
+
+Configuration: k=20, use_rerank=True, category=None (searching both rule_system and scenario_data)
+
+✅ Q1: Passed
+❌ Q2: Failed. Expected 'fumble' in context.
+   Question: What happens if I roll a 100 on a skill check?
+   Top result (category: rule_system) preview: mark in the box next to it on your investigator sheet. you 
+can only get one check per skill at a time. at the end of the 
+scenario, that skill could ...
+✅ Q3: Passed
+✅ Q4: Passed
+❌ Q5: Failed. Expected 'disaster' in context.
+   Question: What happens if I fail a Pushed Roll?
+   Top result (category: scenario_data) preview: welcome to call of cthulhu
+19
+pushing the roll?
+if the players fail the roll, ask if they want to persist in their 
+efforts to gain access to the clip...
+✅ Q6: Passed
+❌ Q7: Failed. Expected '99' in context.
+   Question: What is the maximum sanity points a person can have?
+   Top result (category: rule_system) preview: amount of sanity points. if you roll under, you will lose less 
+or none. the sanity loss is generally described for an event as 
+something like “0/1d6...
+❌ Q8: Failed. Expected 'volley' in context.
+   Question: How does automatic fire work?
+   Top result (category: scenario_data) preview: electric light bulb does not work. the walls of the basement 
+are lined with closely fitted boards.
+corbitt has turned off the electricity to the base...
+✅ Q9: Passed
+❌ Q10: Failed. Expected 'permanent' in context.
+   Question: What happens when Sanity hits 0?
+   Top result (category: rule_system) preview: amount of sanity points. if you roll under, you will lose less 
+or none. the sanity loss is generally described for an event as 
+something like “0/1d6...
+✅ Q11: Passed
+❌ Q12: Failed. Expected '1 hp' in context.
+   Question: How do I heal naturally?
+   Top result (category: rule_system) preview: welcome to call of cthulhu
+14
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+0
+through stabilizing the character. if a character suffers points 
+of damage greater than or...
+✅ Q13: Passed
+✅ Q14: Passed
+✅ Q15: Passed
+✅ Q16: Passed
+✅ Q17: Passed
+❌ Q18: Failed. Expected 'language' in context.
+   Question: What is the skill for reading old languages?
+   Top result (category: scenario_data) preview: occult nature. an initial reading of this book (requiring either 
+a read latin skill of 50% or more, or a successful read latin 
+roll) will take a min...
+✅ Q19: Passed
+✅ Q20: Passed
+
+FINAL SCORE: 13/20

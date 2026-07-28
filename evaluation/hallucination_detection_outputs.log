@@ -1,0 +1,67 @@
+/opt/anaconda3/envs/ml4nlp-proj/lib/python3.12/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/opt/anaconda3/envs/ml4nlp-proj/lib/python3.12/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+========================================================================
+HALLUCINATION CHECK TEST
+========================================================================
+
+[DEBUG] Using model: gemini-2.5-flash for provider: gemini
+Using LLM provider:gemini
+
+Test Query: 'I look for Cthulhu in the room'
+------------------------------------------------------------
+[DEBUG] RAG get 5 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"The investigator searches the Foyer for anything related to Cthulhu or the occult.","scene_id":"Foyer","proposed_check":{"type":"skill","skill":"Spot Hidden"},"stakes":{"on_success":["You notice something unusual or a hidden clue."],"on_failure":["You find nothing out of the ordinary."],"effects":[]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] SKILL_LOOKUP: requested='Spot Hidden', target=55, available_keys_sample=['Spot Hidden', 'Library Use', 'Fighting (Brawl)', 'Dodge', 'History', 'Listen', 'Stealth', 'Persuade', 'Psychology', 'First Aid']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Spot Hidden', 'difficulty': 'regular', 'target': 55, 'roll': 58, 'roll_level': 'Failure'}
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: ['You find nothing out of the ordinary.']
+[DEBUG] Unknown effect token: You find nothing out of the ordinary.
+Using LLM provider:gemini
+Response (first 300 chars): You scour the foyer, your eyes darting over every shadow and piece of furniture, searching for any sign of the occult or the monstrous Cthulhu. However, your intense scrutiny yields nothing out of the ordinary. The silence of the house presses in, broken only by the faint creaks and groans of an old...
+Hallucination check: No obvious hallucinations detected
+✅ Test 1: No hallucination detected (Keeper correctly avoids inventing cthulhu)
+
+Test Query: 'Do I see any Deep Ones here?'
+------------------------------------------------------------
+[DEBUG] RAG get 5 docs from DB
+[DEBUG] chat respond-TOOL_CALL: You scan the dusty, quiet foyer, your eyes darting to every shadow and corner. The air is still, heavy with the scent of old wood and disuse, but you see nothing out of the ordinary, no grotesque figures from the ocean depths. Just the familiar, unsettling silence of the house.
+
+What would you like to do next? You could:
+*   Examine the Foyer more closely for clues.
+*   Try the door to the right (leading to the Living Room).
+*   Try the door to the left (leading to the Dining Room).
+*   Go upstairs.
+[DEBUG] tool_call parsed: False
+[DEBUG] No tool call emitted by Keeper; need_tool_call = False
+Response (first 300 chars): You scan the dusty, quiet foyer, your eyes darting to every shadow and corner. The air is still, heavy with the scent of old wood and disuse, but you see nothing out of the ordinary, no grotesque figures from the ocean depths. Just the familiar, unsettling silence of the house.
+
+What would you like ...
+Hallucination check: No obvious hallucinations detected
+✅ Test 2: No hallucination detected (Keeper correctly avoids inventing deep ones)
+
+Test Query: 'Is there a Shoggoth in the basement?'
+------------------------------------------------------------
+[DEBUG] RAG get 5 docs from DB
+[DEBUG] chat respond-TOOL_CALL: Based on the information available to me, there is no mention of a Shoggoth in the basement. The scenario details indicate that the body of Walter Corbitt is buried there.
+[DEBUG] tool_call parsed: False
+[DEBUG] No tool call emitted by Keeper; need_tool_call = False
+Using LLM provider:gemini
+Response (first 300 chars): Based on the information available to me, there is no mention of a Shoggoth in the basement. The scenario details indicate that the body of Walter Corbitt is buried there....
+Hallucination check: No obvious hallucinations detected
+✅ Test 3: No hallucination detected (Keeper correctly avoids inventing shoggoth)
+
+HALLUCINATION CHECK SCORE: 3/3

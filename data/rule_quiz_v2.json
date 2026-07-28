@@ -1,0 +1,82 @@
+[
+  {
+    "question": "How do I calculate a Hard success?",
+    "answer_keyword": "half"
+  },
+  {
+    "question": "What happens if I roll a 100 on a skill check?",
+    "answer_keyword": "fumble"
+  },
+  {
+    "question": "What is the formula for Movement Rate (MOV)?",
+    "answer_keyword": "siz"
+  },
+  {
+    "question": "How much damage does a small knife do?",
+    "answer_keyword": "1d4"
+  },
+  {
+    "question": "What happens if I fail a Pushed Roll?",
+    "answer_keyword": "consequence"
+  },
+  {
+    "question": "What skill do I use to find hidden clues?",
+    "answer_keyword": "spot hidden"
+  },
+  {
+    "question": "What is the maximum sanity points a person can have?",
+    "answer_keyword": "99"
+  },
+  {
+    "question": "What does it mean for the credit rating in skills?",
+    "answer_keyword": "wealth"
+  },
+  {
+    "question": "Can I push a combat roll?",
+    "answer_keyword": "no"
+  },
+  {
+    "question": "What happens when Sanity hits 0?",
+    "answer_keyword": "indefinite"
+  },
+  {
+    "question": "What does STR stand for?",
+    "answer_keyword": "strength"
+  },
+  {
+    "question": "How do I heal naturally?",
+    "answer_keyword": "1 hit point"
+  },
+  {
+    "question": "What is the penalty die?",
+    "answer_keyword": "tens"
+  },
+  {
+    "question": "How do I dodge an attack?",
+    "answer_keyword": "dodge"
+  },
+  {
+    "question": "What is an Extreme success?",
+    "answer_keyword": "fifth"
+  },
+  {
+    "question": "What happens if I lose 5 Sanity in one go?",
+    "answer_keyword": "intelligence"
+  },
+  {
+    "question": "How do I determine order of combat?",
+    "answer_keyword": "dex"
+  },
+  {
+    "question": "Which charateristic determine the close range?",
+    "answer_keyword": "dex"
+  },
+  {
+    "question": "What is the base chance for Cthulhu Mythos skill?",
+    "answer_keyword": "0"
+  },
+  {
+    "question": "How does a Bonus Die work?",
+    "answer_keyword": "tens"
+  }
+]

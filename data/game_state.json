@@ -1,0 +1,55 @@
+{
+  "investigator": {
+    "name": "Detective Skywalker",
+    "stats": {
+      "STR": 60,
+      "CON": 50,
+      "SIZ": 60,
+      "DEX": 50,
+      "APP": 40,
+      "INT": 70,
+      "POW": 40,
+      "EDU": 70
+    },
+    "hp": {
+      "current": 9,
+      "max": 11
+    },
+    "sanity": {
+      "current": 30,
+      "max": 99,
+      "temp_insanity": true
+    },
+    "skills": {
+      "Spot Hidden": 55,
+      "Library Use": 70,
+      "Fighting (Brawl)": 40,
+      "Dodge": 30,
+      "History": 40,
+      "Listen": 50,
+      "Stealth": 40,
+      "Persuade": 80,
+      "Psychology": 50,
+      "First Aid": 30,
+      "Lockpick": 76
+    },
+    "inventory": [
+      "Flashlight",
+      "Notebook",
+      "Pencil",
+      "Corbitt Diaries (3 volumes)"
+    ]
+  },
+  "game": {
+    "location": "Second Storage Room",
+    "clues_found": [
+      "Corbitt_Diaries"
+    ],
+    "turn_count": 15,
+    "alert_level": 2,
+    "corbitt_influence": true,
+    "night": true,
+    "npc_hostile": true,
+    "front_door_unlocked": true
+  }
+}

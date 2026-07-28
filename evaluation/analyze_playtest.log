@@ -1,0 +1,263 @@
+Analyzing 9 log file(s)...
+
+
+========================================================================
+LOG ANALYSIS: demo_keeper_investigator_inter2.log
+========================================================================
+
+Total Turns: 0
+Tool Calls: 20
+  Average per turn: 0.00
+
+Skill Checks (dice rolls): 10
+  Average per turn: 0.00
+No-Check Turns: 10
+  Rate: 0.0%
+
+Effects Applied:
+  - alert: 1
+  - clue: 4
+  - item: 1
+  - sanity: 1
+
+Game Mechanics Summary:
+  - Moves: 0
+  - Clues found: 4
+  - Items found: 1
+  - Sanity changes: 1
+  - HP changes: 0
+
+
+========================================================================
+LOG ANALYSIS: demo_keeper_investigator_inter2_1.log
+========================================================================
+
+Total Turns: 0
+Tool Calls: 11
+  Average per turn: 0.00
+
+Skill Checks (dice rolls): 7
+  Average per turn: 0.00
+No-Check Turns: 3
+  Rate: 0.0%
+
+Effects Applied:
+  - clue: 4
+  - item: 1
+
+Game Mechanics Summary:
+  - Moves: 0
+  - Clues found: 4
+  - Items found: 1
+  - Sanity changes: 0
+  - HP changes: 0
+
+
+========================================================================
+LOG ANALYSIS: demo_keeper_investigator_inter2_2.log
+========================================================================
+
+Total Turns: 0
+Tool Calls: 12
+  Average per turn: 0.00
+
+Skill Checks (dice rolls): 5
+  Average per turn: 0.00
+No-Check Turns: 7
+  Rate: 0.0%
+
+Effects Applied:
+  - alert: 1
+
+Game Mechanics Summary:
+  - Moves: 0
+  - Clues found: 0
+  - Items found: 0
+  - Sanity changes: 0
+  - HP changes: 0
+
+
+========================================================================
+LOG ANALYSIS: demo_keeper_investigator_inter2_3.log
+========================================================================
+
+Total Turns: 0
+Tool Calls: 12
+  Average per turn: 0.00
+
+Skill Checks (dice rolls): 3
+  Average per turn: 0.00
+No-Check Turns: 9
+  Rate: 0.0%
+
+Effects Applied:
+  - alert: 1
+  - clue: 2
+  - sanity: 1
+
+Game Mechanics Summary:
+  - Moves: 0
+  - Clues found: 2
+  - Items found: 0
+  - Sanity changes: 1
+  - HP changes: 0
+
+
+========================================================================
+LOG ANALYSIS: demo_keeper_investigator_inter2_4.log
+========================================================================
+
+Total Turns: 0
+Tool Calls: 20
+  Average per turn: 0.00
+
+Skill Checks (dice rolls): 10
+  Average per turn: 0.00
+No-Check Turns: 10
+  Rate: 0.0%
+
+Effects Applied:
+  - alert: 1
+  - clue: 2
+  - sanity: 2
+
+Game Mechanics Summary:
+  - Moves: 0
+  - Clues found: 2
+  - Items found: 0
+  - Sanity changes: 2
+  - HP changes: 0
+
+
+========================================================================
+LOG ANALYSIS: demo_keeper_investigator_inter2_5.log
+========================================================================
+
+Total Turns: 0
+Tool Calls: 20
+  Average per turn: 0.00
+
+Skill Checks (dice rolls): 8
+  Average per turn: 0.00
+No-Check Turns: 12
+  Rate: 0.0%
+
+Effects Applied:
+  - alert: 1
+  - clue: 4
+
+Game Mechanics Summary:
+  - Moves: 0
+  - Clues found: 4
+  - Items found: 0
+  - Sanity changes: 0
+  - HP changes: 0
+
+
+========================================================================
+LOG ANALYSIS: test_keeper_investigator_inter.log
+========================================================================
+
+Total Turns: 16
+Tool Calls: 16
+  Average per turn: 1.00
+
+Skill Checks (dice rolls): 4
+  Average per turn: 0.25
+No-Check Turns: 12
+  Rate: 75.0%
+
+Effects Applied:
+  - alert: 1
+  - clue: 2
+  - flag: 6
+  - item: 1
+  - move: 2
+  - sanity: 3
+
+Game Mechanics Summary:
+  - Moves: 2
+  - Clues found: 2
+  - Items found: 1
+  - Sanity changes: 3
+  - HP changes: 0
+
+
+========================================================================
+LOG ANALYSIS: test_keeper_investigator_inter_8.log
+========================================================================
+
+Total Turns: 34
+Tool Calls: 32
+  Average per turn: 0.94
+
+Skill Checks (dice rolls): 9
+  Average per turn: 0.26
+No-Check Turns: 23
+  Rate: 67.6%
+
+Effects Applied:
+  - alert: 2
+  - clue: 3
+  - flag: 12
+  - item: 2
+  - move: 4
+  - sanity: 6
+
+Game Mechanics Summary:
+  - Moves: 4
+  - Clues found: 3
+  - Items found: 2
+  - Sanity changes: 6
+  - HP changes: 0
+
+
+========================================================================
+LOG ANALYSIS: test_keeper_investigator_inter_9.log
+========================================================================
+
+Total Turns: 18
+Tool Calls: 16
+  Average per turn: 0.89
+
+Skill Checks (dice rolls): 5
+  Average per turn: 0.28
+No-Check Turns: 11
+  Rate: 61.1%
+
+Effects Applied:
+  - alert: 1
+  - clue: 2
+  - flag: 6
+  - item: 1
+  - move: 2
+  - sanity: 2
+
+Game Mechanics Summary:
+  - Moves: 2
+  - Clues found: 2
+  - Items found: 1
+  - Sanity changes: 2
+  - HP changes: 0
+
+
+========================================================================
+COMPARISON ACROSS LOG FILES
+========================================================================
+
+Total Logs Analyzed: 9
+Total Turns: 68
+Total Tool Calls: 159
+  Average per turn: 2.34
+Total Skill Checks: 61
+  Average per turn: 0.90
+No-Check Rate: 142.6%
+
+Total Effects Applied:
+  - alert: 9
+  - clue: 23
+  - flag: 24
+  - item: 6
+  - move: 8
+  - sanity: 15
+

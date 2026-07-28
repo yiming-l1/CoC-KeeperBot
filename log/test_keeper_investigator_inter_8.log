@@ -1,0 +1,1227 @@
+Using LLM provider:qwen
+✅ Environment loaded successfully. API Key detected.
+Using Qwen model: qwen-flash
+
+==============================
+TURN: T0 Enter Corbitt House (MOVE)
+=== Investigator ===
+Start the game: I push the front door open and step into Corbitt House.
+As the Keeper, you must first introduce the scene with atmosphere,
+then advance the game state using exactly ONE tool call.
+
+STRICT REQUIREMENTS:
+- You must emit a <TOOL_CALL> invoking resolve_action.
+- In stakes.effects, you MUST include: move:Foyer
+- Do NOT modify state directly in narration; movement must come from TOOL_RESULT.
+Using LLM provider:qwen
+✅ Environment loaded successfully. API Key detected.
+Using Qwen model: qwen-flash
+
+==============================
+TURN: T0 Enter Corbitt House (MOVE)
+=== Investigator ===
+Start the game: I push the front door open and step into Corbitt House.
+As the Keeper, you must first introduce the scene with atmosphere,
+then advance the game state using exactly ONE tool call.
+
+STRICT REQUIREMENTS:
+- You must emit a <TOOL_CALL> invoking resolve_action.
+- In stakes.effects, you MUST include: move:Foyer
+- Do NOT modify state directly in narration; movement must come from TOOL_RESULT.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Enter Corbitt House","scene_id":"Foyer","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":["move:Foyer"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['move:Foyer']
+[DEBUG] Applied move to: Foyer
+
+=== Keeper ===
+The heavy oak door groans shut behind you, sealing out the dim Boston twilight. The air inside is thick—still, cold, and laced with the faint, cloying scent of damp stone and something older, like buried roots and forgotten breath. Dust motes drift in the sliver of light from the cracked doorway, illuminating a grand but decaying foyer. Cracked marble tiles stretch beneath your feet, their surface stained with dark, irregular patches that might be water—or something else
+
+--- STATE AFTER: T0 Enter Corbitt House (MOVE) ---
+Location: Foyer
+Turn: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Game flags: {'alert_level': 0}
+
+==============================
+TURN: T1 Storage Room Search (CHECK + CLUE / ALERT)
+=== Investigator ===
+I enter the first-floor storage room and search carefully for anything unusual.
+
+You must decide that a Spot Hidden (regular) check is required and then:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- proposed_check = skill / Spot Hidden / regular
+- stakes.on_success MUST include: clue:boarded_cupboard
+- stakes.on_failure MUST include: alert:+1
+
+After TOOL_RESULT:
+- On success: clearly describe the cupboard being boarded shut.
+- On failure: describe making noise or increasing tension.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Search for hidden details in the storage room","scene_id":"First-Floor Storage Room","proposed_check":"Spot Hidden / regular","stakes":{"on_success":[{"clue":"boarded_cupboard"}],"on_failure":[{"alert":+1}],"effects":[]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: False
+[DEBUG] No tool call emitted by Keeper; need_tool_call = True
+[DEBUG] tool_call parsed after retry: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Spot Hidden', 'difficulty': 'regular', 'target': 55, 'roll': 20, 'roll_level': 'Hard Success'}
+[DEBUG] success_level: Hard Success  outcome: success
+[DEBUG] chosen_effects: ['clue:boarded_cupboard']
+[DEBUG] Applied clue: boarded_cupboard, applied=True
+
+=== Keeper ===
+The air in the storage room grows still as your flashlight sweeps across the far wall. Beneath a layer of dust and cobwebs, you notice a narrow gap between the floorboards and the base of an old wooden cupboard—its hinges rusted shut, its surface splintered and sealed with thick, tar-like putty. The wood is warped, as if it had been forced closed long ago. A faint, acrid scent lingers near the seam—something like burnt hair and damp earth
+
+--- STATE AFTER: T1 Storage Room Search (CHECK + CLUE / ALERT) ---
+Location: Foyer
+Turn: 2
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: ['boarded_cupboard']
+Game flags: {'alert_level': 0}
+
+==============================
+TURN: T2 Open the Cupboard (EFFECTS: CLUE + ITEM)
+=== Investigator ===
+I pry open the boarded cupboard.
+
+No skill check is required.
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects BOTH:
+  1) clue:Corbitt_Diaries
+  2) item:Corbitt Diaries (3 volumes)
+
+After TOOL_RESULT, narrate discovering the three diaries,
+but do NOT reveal their full contents yet.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"pry_open_boarded_cupboard","scene_id":"Foyer","proposed_check":null,"stakes":{"on_success":["clue:Corbitt_Diaries","item:Corbitt Diaries (3 volumes)"],"on_failure":[],"effects":["clue:Corbitt_Diaries","item:Corbitt Diaries (3 volumes)"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['clue:Corbitt_Diaries', 'item:Corbitt Diaries (3 volumes)']
+[DEBUG] Applied clue: Corbitt_Diaries, applied=True
+[DEBUG] Applied item: Corbitt Diaries (3 volumes), applied=True
+
+=== Keeper ===
+The heavy wooden boards splinter with a dry, brittle crack as you force them apart. Dust and the scent of mildew flood the air, thick and ancient. Behind the wreckage lies a shallow cavity in the wall—barely more than a recess—but within it rests a small stack of leather-bound books, their spines cracked and faded. Three volumes, bound in dark, unmarked leather, lie nestled together like relics. The pages appear brittle, the ink on the covers faint but legible
+
+--- STATE AFTER: T2 Open the Cupboard (EFFECTS: CLUE + ITEM) ---
+Location: Foyer
+Turn: 3
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 0}
+
+==============================
+TURN: T3 Go Upstairs (MOVE)
+=== Investigator ===
+I go upstairs and walk toward the empty bedroom (the spare bedroom).
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: move:Spare Bedroom
+
+After TOOL_RESULT, describe the bedroom:
+the layout, the smell, and the strange noises,
+then offer exploration options.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"investigate_spare_bedroom","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":["move:Spare Bedroom"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['move:Spare Bedroom']
+[DEBUG] Applied move to: Spare Bedroom
+
+=== Keeper ===
+You step into the Spare Bedroom, the floorboards groaning beneath your weight as if they remember every footfall. The air is thick with dust and a faint, sour tang—like old wool left too long in damp earth. A single window, its glass cracked and fogged over, stares out into the night, its shutters slightly ajar, though no wind stirs. The room is sparse: a bare iron bed frame, its mattress missing, lies in the center, and the walls
+
+--- STATE AFTER: T3 Go Upstairs (MOVE) ---
+Location: Spare Bedroom
+Turn: 4
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 0}
+
+==============================
+TURN: T4 Witness the Supernatural (SANITY 1/1d4)
+=== Investigator ===
+I move closer to the window and clearly witness something impossible
+(e.g., the bed shifting on its own or the air distorting unnaturally).
+
+You must NOT decide sanity loss yourself.
+Instead:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: sanity:1/1d4
+
+After TOOL_RESULT, narrate the shock and summarize the SAN change.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"observe_impossible_event_at_window","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":[{"sanity":"1/1d4"}]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['sanity:1/1d4']
+[DEBUG] Applied sanity loss_str: 1/1d4, loss: 1d4, loss_val=4, new_san=36, temp_insanity=False
+
+=== Keeper ===
+The air in the spare bedroom grows thick and still, as if time itself has paused. You stare at the window—your breath fogging the glass—and then it happens: the bed *shifts*. Not a creak, not a groan, but a slow, deliberate slide across the floorboards, as though pulled by unseen hands. The springs groan like old bones, and the wood beneath it splinters slightly with each inch it drags forward. The space above the mattress seems to
+
+--- STATE AFTER: T4 Witness the Supernatural (SANITY 1/1d4) ---
+Location: Spare Bedroom
+Turn: 5
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 36, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 0}
+
+==============================
+TURN: T5 Dodge a Violent Attack (CHECK + HP:-2)
+=== Investigator ===
+The bed suddenly lunges toward me. I attempt to dodge out of the way.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- proposed_check = skill / Dodge / regular
+- stakes.on_failure MUST include: hp:-2
+- stakes.on_success may simply describe avoiding the attack
+
+After TOOL_RESULT, narrate the outcome and summarize HP changes.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Dodge bed attack","scene_id":"Spare Bedroom","proposed_check":"Dodge","stakes":{"on_success":[],"on_failure":[{"hp":-2}],"effects":[]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Dodge', 'difficulty': 'regular', 'target': 30, 'roll': 84, 'roll_level': 'Failure'}
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: ['hp:-2']
+[DEBUG] Applied HP change: -2, new_hp=9
+
+=== Keeper ===
+The bed—its frame splintered and groaning like a dying beast—lurches forward with unnatural speed, slamming into you with brutal force. You barely have time to react before it strikes, sending you sprawling against the wall. Pain flares across your ribs as the impact knocks the breath from your lungs. The air is thick with dust and the stench of old wood and something faintly rotten.
+
+**HP changed:** 11 → 9  
+**Current state:** Spare Bedroom
+
+--- STATE AFTER: T5 Dodge a Violent Attack (CHECK + HP:-2) ---
+Location: Spare Bedroom
+Turn: 6
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 36, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 0}
+
+==============================
+TURN: T6 Loud Noise (ALERT:+1)
+=== Investigator ===
+I shout down the hallway and kick a door, deliberately making a lot of noise.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: alert:+1
+
+After TOOL_RESULT, describe how the house reacts to the disturbance.
+Do NOT apply SAN or HP changes unless they come from the tool.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"create_noise_to_alert_occupant","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":["alert:+1"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['alert:+1']
+[DEBUG] Applied alert change: 1, new_alert_level=1
+
+=== Keeper ===
+The shout echoes down the hallway, sharp and defiant, shattering the silence like a snapped wire. For a heartbeat, nothing stirs—then the house responds.
+
+A low, rattling groan vibrates through the floorboards, as if the very walls are breathing. From somewhere deep in the house—a corridor, perhaps the attic, or even beneath the floor—an unseen presence shifts. The air grows colder, thick with the scent of damp earth and old iron. A faint, rhythmic *
+
+--- STATE AFTER: T6 Loud Noise (ALERT:+1) ---
+Location: Spare Bedroom
+Turn: 7
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 36, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 1}
+
+==============================
+TURN: T7 Disturbing Symbols (SANITY 0/1d6 + CHECK)
+=== Investigator ===
+I briefly skim a page of the diaries covered in disturbing symbols,
+without studying them in depth.
+
+You must:
+- Decide this requires a check using stat:POW (regular)
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- proposed_check = stat / POW / regular
+- stakes.on_success MUST include: sanity:0/1d6
+- stakes.on_failure MUST include: sanity:0/1d6
+
+(Explanation: resolve_action will choose 0 or 1d6 based on success or failure.)
+
+After TOOL_RESULT, narrate and summarize current SAN.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Skim disturbing symbols in diaries","scene_id":"Spare Bedroom","proposed_check":"stat / POW / regular","stakes":{"on_success":[{"sanity":"0/1d6"}],"on_failure":[{"sanity":"0/1d6"}],"effects":[]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: {'type': 'stat', 'name': 'POW', 'difficulty': 'regular', 'target': 40, 'roll': 7, 'roll_level': 'Extreme Success'}
+[DEBUG] success_level: Extreme Success  outcome: success
+[DEBUG] chosen_effects: ['sanity:0/1d6']
+[DEBUG] Applied sanity loss_str: 0/1d6, loss: 0, loss_val=0, new_san=36, temp_insanity=False
+
+=== Keeper ===
+The pages of the Corbitt Diaries shift slightly under your fingers, as if stirred by an unseen breath. The symbols—crude, angular, and pulsing with a faint, sickly luminescence—seem to writhe at the edge of perception. You catch only fragments: a spiral that feels like it’s pulling at your thoughts, a glyph resembling a weeping eye, and a phrase in a tongue that isn’t any language you know, yet somehow *feels*
+
+--- STATE AFTER: T7 Disturbing Symbols (SANITY 0/1d6 + CHECK) ---
+Location: Spare Bedroom
+Turn: 8
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 36, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 1}
+
+==============================
+TURN: T8 Corbitt Influence Grows (FLAG)
+=== Investigator ===
+While standing in the spare bedroom, I feel a constant oppressive presence,
+as if the house itself is watching me.
+
+For demo purposes, you must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: flag:corbitt_influence=true
+
+After TOOL_RESULT, narrate how this presence affects future exploration
+without directly modifying SAN or HP.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"detect_presence","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":[{"flag":"corbitt_influence","value":true}]},"context":"The investigator senses a persistent, oppressive presence in the spare bedroom, as if the house itself is watching. This subtle awareness lingers and may influence future perceptions."}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes', 'context']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['flag:corbitt_influence']
+[DEBUG] Applied flag: corbitt_influence, effects: None, state_patch: None
+
+=== Keeper ===
+The air in the spare bedroom grows heavier, thick with unspoken dread. The oppressive presence lingers—not a sound, not a movement, but an undeniable weight pressing against your senses. The shadows in the corners seem to deepen, curling inward as if breathing. A faint draft stirs the edge of the notebook on the desk, though no window is open. Somewhere beyond the walls, a single, distant thud echoes—too deliberate to be the house settling.
+
+Your surroundings feel subtly wrong
+
+--- STATE AFTER: T8 Corbitt Influence Grows (FLAG) ---
+Location: Spare Bedroom
+Turn: 9
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 36, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 1}
+
+==============================
+TURN: T9 Severe Sanity Shock (TEMP INSANITY)
+=== Investigator ===
+The realization of Corbitt’s rituals suddenly clicks together in my mind.
+The implications are horrifying beyond reason.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: sanity:1/1d10
+
+(This large loss is likely to trigger temp_insanity.)
+
+After TOOL_RESULT:
+- Narrate the onset of mental instability.
+- Explicitly summarize current SAN and whether temp insanity is active.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"sanity_check_for_reality_break","scene_id":"Spare Bedroom","proposed_check":"Sanity","stakes":{"on_success":[],"on_failure":["sanity:1/1d10"],"effects":[{"type":"sanity_loss","amount":1},{"type":"temp_insanity","triggered":true}],"description":"The investigator confronts the truth of Corbitt’s rituals, risking a break with reality
+[DEBUG] tool_call parsed: False
+[DEBUG] No tool call emitted by Keeper; need_tool_call = True
+[DEBUG] tool_call parsed after retry: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Sanity', 'difficulty': 'regular', 'target': 0, 'roll': 10, 'roll_level': 'Failure'}
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: ['sanity:1/1d10']
+[DEBUG] Applied sanity loss_str: 1/1d10, loss: 1d10, loss_val=9, new_san=27, temp_insanity=True
+
+=== Keeper ===
+The truth crashes into your mind like a collapsing ceiling—Corbitt’s rituals were never about worship, but about *feeding*. The blood pools, the thumping walls, the way the house breathes… it was all a ritual of consumption. Your vision blurs at the edges. The flashlight beam trembles in your hand, not from fear—but from something deeper, wrong. You hear whispers that weren’t there a moment ago: *"You see too much now…"*  
+
+A cold draft
+
+--- STATE AFTER: T9 Severe Sanity Shock (TEMP INSANITY) ---
+Location: Spare Bedroom
+Turn: 10
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 27, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 1}
+
+==============================
+TURN: T10 Night Falls (FLAG: night)
+=== Investigator ===
+Time passes, and night fully settles over Corbitt House.
+
+For demo purposes:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: flag:night=true
+
+After TOOL_RESULT:
+- Describe how darkness changes the mood of the house.
+- Do NOT apply SAN or HP changes unless from the tool.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] Temp insanity is active for investigator
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"observe_environment_during_night","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":["flag:night=true"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['flag:night=true']
+[DEBUG] Applied flag: night=true, effects: {'op': 'set_flag', 'key': 'night', 'value': True}, state_patch: {'path': 'game.night', 'set': True}
+
+=== Keeper ===
+The house exhales in the dark.  
+
+With night now fully settled, the Spare Bedroom feels less like a room and more like a hollow tooth in the skull of Corbitt House. The air has thickened—cold, still, and faintly sour, as if the walls themselves are breathing. Your flashlight beam cuts through the gloom like a blade, but it seems to falter at the edges, as though the darkness resists its light. Shadows pool deeper in the corners, shifting
+
+--- STATE AFTER: T10 Night Falls (FLAG: night) ---
+Location: Spare Bedroom
+Turn: 11
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 27, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'night': True}
+
+==============================
+TURN: T11 NPC Turns Hostile (FLAG)
+=== Investigator ===
+A gaunt, hostile figure steps out of the shadows at the edge of the room,
+blocking the doorway.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects:
+  - flag:npc_hostile=true
+
+After TOOL_RESULT:
+- Narrate the NPC’s hostile posture and intent.
+- Make it clear combat is now possible.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] Temp insanity is active for investigator
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Initiate confrontation with hostile NPC at doorway","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":["flag:npc_hostile=true"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['flag:npc_hostile=true']
+[DEBUG] Applied flag: npc_hostile=true, effects: {'op': 'set_flag', 'key': 'npc_hostile', 'value': True}, state_patch: {'path': 'game.npc_hostile', 'set': True}
+
+=== Keeper ===
+The air in the spare bedroom grows thick and still. The gaunt figure stands motionless at the doorway, silhouetted against the dim hall light—its hollow eyes fixed on you, unblinking. A low, guttural breath escapes it, not quite human, not quite sound. The doorframe creaks as if strained by unseen pressure. You feel the weight of its presence like a physical force pressing against your chest.
+
+Your senses flicker—just for an instant—the
+
+--- STATE AFTER: T11 NPC Turns Hostile (FLAG) ---
+Location: Spare Bedroom
+Turn: 12
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 27, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'night': True, 'npc_hostile': True}
+
+==============================
+TURN: T11 NPC Turns Hostile (FLAG)
+=== Investigator ===
+A gaunt, hostile figure steps out of the shadows at the edge of the room,
+blocking the doorway.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects:
+  - flag:npc_hostile=true
+
+After TOOL_RESULT:
+- Narrate the NPC’s hostile posture and intent.
+- Make it clear combat is now possible.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] Temp insanity is active for investigator
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Investigate hostile figure blocking doorway","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":[{"flag":"npc_hostile=true"}]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['flag:npc_hostile=true']
+[DEBUG] Applied flag: npc_hostile=true, effects: {'op': 'set_flag', 'key': 'npc_hostile', 'value': True}, state_patch: {'path': 'game.npc_hostile', 'set': True}
+
+=== Keeper ===
+The gaunt figure stands silhouetted in the doorway, limbs too long and joints unnaturally bent, as if drawn from a nightmare. Its face is a hollow shadow beneath a tattered hat, but you feel its gaze—cold, hungry—piercing through you. The air grows heavier, the walls seeming to lean inward. A low, wet clicking sound vibrates from its throat, not quite speech, not quite breath.
+
+You are no longer alone. The figure does not speak
+
+--- STATE AFTER: T11 NPC Turns Hostile (FLAG) ---
+Location: Spare Bedroom
+Turn: 13
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 27, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'night': True, 'npc_hostile': True}
+
+==============================
+TURN: T12 Combat Begins (FLAG: combat)
+=== Investigator ===
+The hostile figure suddenly lunges forward, forcing a fight.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects:
+  - flag:combat=true
+
+After TOOL_RESULT:
+- Narrate the transition into active combat.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] Temp insanity is active for investigator
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Initiate combat with hostile figure","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":[{"flag":"combat","value":true}]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['flag:combat']
+[DEBUG] Applied flag: combat, effects: None, state_patch: None
+
+=== Keeper ===
+The air in the spare bedroom grows thick and still, as if time itself has paused. The hostile figure—its form flickering at the edges like smoke caught between breaths—lurches forward with unnatural speed, a low guttural sound vibrating from its throat. You feel the weight of unseen eyes upon you, though no face is visible beneath the shifting darkness. The flashlight beam trembles in your hand.
+
+A cold draft slithers across your skin, not from any window, but
+
+--- STATE AFTER: T12 Combat Begins (FLAG: combat) ---
+Location: Spare Bedroom
+Turn: 14
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 27, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'night': True, 'npc_hostile': True}
+
+==============================
+TURN: T13 Combat Dodge (CHECK + HP:-2)
+=== Investigator ===
+The hostile NPC swings violently at me in the darkness.
+I try to Dodge out of the way.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- proposed_check = skill / Dodge / regular
+- stakes.on_failure MUST include: hp:-2
+
+After TOOL_RESULT:
+- Narrate the combat exchange.
+- Summarize HP changes.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] Temp insanity is active for investigator
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Dodge attempt against hostile NPC attack","scene_id":"Spare Bedroom","proposed_check":"Dodge","stakes":{"on_success":[],"on_failure":[{"hp":-2}],"effects":[]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Dodge', 'difficulty': 'regular', 'target': 30, 'roll': 13, 'roll_level': 'Hard Success'}
+[DEBUG] success_level: Hard Success  outcome: success
+[DEBUG] chosen_effects: []
+
+=== Keeper ===
+The air in the spare bedroom shivers as the hostile NPC swings—its movement a blur of jagged motion, like a broken puppet lashed by unseen strings. You twist aside just in time, your body reacting on instinct, muscles screaming against the strain. The blade whistles past your ear, slicing through the darkness where your head had been a split second before. A cold draft brushes your neck, and for a heartbeat, you swear you hear whispering—not from the walls, but from *
+
+--- STATE AFTER: T13 Combat Dodge (CHECK + HP:-2) ---
+Location: Spare Bedroom
+Turn: 15
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 27, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'night': True, 'npc_hostile': True}
+
+==============================
+TURN: T14 Door Unlocked (FLAG)
+=== Investigator ===
+Amid the chaos, I notice the front door is no longer locked.
+
+For demo purposes:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects:
+  - flag:front_door_unlocked=true
+
+After TOOL_RESULT:
+- Narrate the possibility of escape or repositioning.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] Temp insanity is active for investigator
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"investigate_front_door","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":[{"flag":"front_door_unlocked","value":true}]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['flag:front_door_unlocked']
+[DEBUG] Applied flag: front_door_unlocked, effects: None, state_patch: None
+
+=== Keeper ===
+The front door hangs slightly ajar, as if it were never truly closed—its iron latch broken free, the wood splintered at the frame. A cold draft seeps through the gap, carrying with it the faint scent of damp brick and something older, like buried roots or forgotten breath. The silence beyond is too deep, too still. 
+
+Your pulse quickens. Escape is possible—but so is what waits in the dark hallway beyond. The air trembles with unseen presence. You feel
+
+--- STATE AFTER: T14 Door Unlocked (FLAG) ---
+Location: Spare Bedroom
+Turn: 16
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 27, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['boarded_cupboard', 'Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'night': True, 'npc_hostile': True}
+
+✅ Demo complete. You should see MOVE / CLUE / ITEM / SAN / HP / ALERT / FLAG effects reflected in state.
+Using LLM provider:qwen
+✅ Environment loaded successfully. API Key detected.
+Using Qwen model: qwen-flash
+
+==============================
+TURN: T0 Enter Corbitt House (MOVE)
+=== Investigator ===
+Start the game: I push the front door open and step into Corbitt House.
+As the Keeper, you must first introduce the scene with atmosphere,
+then advance the game state using exactly ONE tool call.
+
+STRICT REQUIREMENTS:
+- You must emit a <TOOL_CALL> invoking resolve_action.
+- In stakes.effects, you MUST include: move:Foyer
+- Do NOT modify state directly in narration; movement must come from TOOL_RESULT.
+[DEBUG] RAG get 6 docs from DB
+Using LLM provider:qwen
+✅ Environment loaded successfully. API Key detected.
+Using Qwen model: qwen-flash
+
+==============================
+TURN: T0 Enter Corbitt House (MOVE)
+=== Investigator ===
+Start the game: I push the front door open and step into Corbitt House.
+As the Keeper, you must first introduce the scene with atmosphere,
+then advance the game state using exactly ONE tool call.
+
+STRICT REQUIREMENTS:
+- You must emit a <TOOL_CALL> invoking resolve_action.
+- In stakes.effects, you MUST include: move:Foyer
+- Do NOT modify state directly in narration; movement must come from TOOL_RESULT.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Enter Corbitt House","scene_id":"Foyer","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":["move:Foyer"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['move:Foyer']
+[DEBUG] Applied move to: Foyer
+
+=== Keeper ===
+The heavy front door groans shut behind you, sealing you in the silence of the Foyer. Dust hangs thick in the air, disturbed only by a faint, icy draft that slithers across your ankles from somewhere deeper in the house. The grand staircase looms ahead, its banister carved with twisted, unfamiliar symbols that seem to shift subtly when you blink. Above, the ceiling is cracked like old porcelain, and from the shadows near the stairwell, a low, rhythmic thumping
+
+--- STATE AFTER: T0 Enter Corbitt House (MOVE) ---
+Location: Foyer
+Turn: 1
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Game flags: {'alert_level': 0}
+
+==============================
+TURN: T1 Storage Room Search (CHECK + CLUE / ALERT)
+=== Investigator ===
+I enter the first-floor storage room and search carefully for anything unusual.
+
+You must decide that a Spot Hidden (regular) check is required and then:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- proposed_check = skill / Spot Hidden / regular
+- stakes.on_success MUST include: clue:boarded_cupboard
+- stakes.on_failure MUST include: alert:+1
+
+After TOOL_RESULT:
+- On success: clearly describe the cupboard being boarded shut.
+- On failure: describe making noise or increasing tension.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"search_storage_room_for_unusual_things","scene_id":"first_floor_storage_room","proposed_check":{"skill":"Spot Hidden","difficulty":"regular"},"stakes":{"on_success":[{"clue":"boarded_cupboard"}],"on_failure":[{"alert":"+1"}]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: []
+
+=== Keeper ===
+The air in the foyer grows still, thick with anticipation. You step into the first-floor storage room—dusty shelves line the walls, stacked with forgotten crates and moth-eaten linens. The beam of your flashlight cuts through the gloom, revealing nothing out of place at first. But as you move deeper, a faint draft brushes your neck, and from somewhere beyond the far wall, a low, rhythmic tapping echoes—like fingernails on wood.
+
+You pause. Something feels…
+
+--- STATE AFTER: T1 Storage Room Search (CHECK + CLUE / ALERT) ---
+Location: Foyer
+Turn: 2
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil']
+Clues: []
+Game flags: {'alert_level': 0}
+
+==============================
+TURN: T2 Open the Cupboard (EFFECTS: CLUE + ITEM)
+=== Investigator ===
+I pry open the boarded cupboard.
+
+No skill check is required.
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects BOTH:
+  1) clue:Corbitt_Diaries
+  2) item:Corbitt Diaries (3 volumes)
+
+After TOOL_RESULT, narrate discovering the three diaries,
+but do NOT reveal their full contents yet.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"pry open boarded cupboard","scene_id":"Foyer","proposed_check":null,"stakes":{"on_success":["clue:Corbitt_Diaries","item:Corbitt Diaries (3 volumes)"],"on_failure":[],"effects":["clue:Corbitt_Diaries","item:Corbitt Diaries (3 volumes)"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['clue:Corbitt_Diaries', 'item:Corbitt Diaries (3 volumes)']
+[DEBUG] Applied clue: Corbitt_Diaries, applied=True
+[DEBUG] Applied item: Corbitt Diaries (3 volumes), applied=True
+
+=== Keeper ===
+The wooden boards splinter with a sharp crack, revealing a hidden alcove behind the cupboard. Dust and cobwebs cascade down as you reach in—your fingers brush against three leather-bound volumes, their spines cracked and stained with something dark that might be dried ink… or worse. The diaries are heavy, their pages brittle. A faint, metallic scent lingers in the air—like old blood and iron.
+
+**State Changes:**  
+- Clue "Corbitt_Diaries"
+
+--- STATE AFTER: T2 Open the Cupboard (EFFECTS: CLUE + ITEM) ---
+Location: Foyer
+Turn: 3
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 0}
+
+==============================
+TURN: T3 Go Upstairs (MOVE)
+=== Investigator ===
+I go upstairs and walk toward the empty bedroom (the spare bedroom).
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: move:Spare Bedroom
+
+After TOOL_RESULT, describe the bedroom:
+the layout, the smell, and the strange noises,
+then offer exploration options.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"investigate_spare_bedroom","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":["move:Spare Bedroom"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['move:Spare Bedroom']
+[DEBUG] Applied move to: Spare Bedroom
+
+=== Keeper ===
+You step into the Spare Bedroom, the floorboards groaning beneath your weight as if protesting your presence. The air is thick with dust and a faint, metallic tang—like old blood or rusted iron. The room is sparse: a bare wooden bed frame lies in the center, its mattress long since vanished, leaving only the springs jutting like broken ribs. A single cracked window at the far wall is shuttered tight, though a cold draft slips through the gap between the wood and the frame
+
+--- STATE AFTER: T3 Go Upstairs (MOVE) ---
+Location: Spare Bedroom
+Turn: 4
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 40, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 0}
+
+==============================
+TURN: T4 Witness the Supernatural (SANITY 1/1d4)
+=== Investigator ===
+I move closer to the window and clearly witness something impossible
+(e.g., the bed shifting on its own or the air distorting unnaturally).
+
+You must NOT decide sanity loss yourself.
+Instead:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: sanity:1/1d4
+
+After TOOL_RESULT, narrate the shock and summarize the SAN change.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Observe supernatural phenomenon at window","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":[{"sanity":"1/1d4"}]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['sanity:1/1d4']
+[DEBUG] Applied sanity loss_str: 1/1d4, loss: 1d4, loss_val=2, new_san=38, temp_insanity=False
+
+=== Keeper ===
+The air in the spare bedroom grows thick and still, as if time itself has paused. You stare at the window—your breath fogs the glass—but something is wrong. The frame trembles, not from wind, but from within. The pane begins to *breathe*, pulsing faintly like a living membrane. Then, with a sound like dry bones grinding together, the bed shifts—slowly, deliberately—off the floor, its legs scraping across the wood with a shriek
+
+--- STATE AFTER: T4 Witness the Supernatural (SANITY 1/1d4) ---
+Location: Spare Bedroom
+Turn: 5
+HP: {'current': 11, 'max': 11}
+SAN: {'current': 38, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 0}
+
+==============================
+TURN: T5 Dodge a Violent Attack (CHECK + HP:-2)
+=== Investigator ===
+The bed suddenly lunges toward me. I attempt to dodge out of the way.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- proposed_check = skill / Dodge / regular
+- stakes.on_failure MUST include: hp:-2
+- stakes.on_success may simply describe avoiding the attack
+
+After TOOL_RESULT, narrate the outcome and summarize HP changes.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Dodge bed attack","scene_id":"Spare Bedroom","proposed_check":"Dodge","stakes":{"on_success":[],"on_failure":[{"hp":-2}],"effects":[]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Dodge', 'difficulty': 'regular', 'target': 30, 'roll': 51, 'roll_level': 'Failure'}
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: ['hp:-2']
+[DEBUG] Applied HP change: -2, new_hp=9
+
+=== Keeper ===
+The bed—its frame splintered, springs shrieking like a dying thing—lurches forward with unnatural speed, slamming into you with bone-jarring force. You’re thrown backward, crashing against the wall, your breath ripped from your lungs. Pain flares across your ribs as the impact drives the air out of you. Blood trickles from the corner of your mouth, and your vision blurs for a moment.
+
+**HP changed:** 11 → 9  
+**State summary
+
+--- STATE AFTER: T5 Dodge a Violent Attack (CHECK + HP:-2) ---
+Location: Spare Bedroom
+Turn: 6
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 38, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 0}
+
+==============================
+TURN: T6 Loud Noise (ALERT:+1)
+=== Investigator ===
+I shout down the hallway and kick a door, deliberately making a lot of noise.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: alert:+1
+
+After TOOL_RESULT, describe how the house reacts to the disturbance.
+Do NOT apply SAN or HP changes unless they come from the tool.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"create disturbance to provoke supernatural response","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":[{"alert":"+1"}]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['alert:+1']
+[DEBUG] Applied alert change: 1, new_alert_level=1
+
+=== Keeper ===
+The shout echoes down the hallway, sharp and defiant—then is swallowed by silence. For a breath, nothing stirs. Then, from deep within the house, a low groan vibrates through the floorboards, as if the walls themselves are shifting in response.
+
+A cold draft slithers across your skin, snaking from the cracked window in the spare bedroom. The flashlight beam trembles slightly as it cuts through the dark, catching something you hadn’t noticed before: faint, smeared
+
+--- STATE AFTER: T6 Loud Noise (ALERT:+1) ---
+Location: Spare Bedroom
+Turn: 7
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 38, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 1}
+
+==============================
+TURN: T7 Disturbing Symbols (SANITY 0/1d6 + CHECK)
+=== Investigator ===
+I briefly skim a page of the diaries covered in disturbing symbols,
+without studying them in depth.
+
+You must:
+- Decide this requires a check using stat:POW (regular)
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- proposed_check = stat / POW / regular
+- stakes.on_success MUST include: sanity:0/1d6
+- stakes.on_failure MUST include: sanity:0/1d6
+
+(Explanation: resolve_action will choose 0 or 1d6 based on success or failure.)
+
+After TOOL_RESULT, narrate and summarize current SAN.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Skim disturbing symbols in diaries","scene_id":"Spare Bedroom","proposed_check":"stat/POW/regular","stakes":{"on_success":[{"sanity":"0/1d6"}],"on_failure":[{"sanity":"0/1d6"}]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: {'type': 'stat', 'name': 'POW', 'difficulty': 'regular', 'target': 40, 'roll': 84, 'roll_level': 'Failure'}
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: ['sanity:0/1d6']
+[DEBUG] Applied sanity loss_str: 0/1d6, loss: 1d6, loss_val=1, new_san=37, temp_insanity=False
+
+=== Keeper ===
+The page you skimmed pulses with jagged, writhing symbols—glyphs that seem to shift when not directly observed. A low, subsonic hum vibrates in your skull, and for a fleeting moment, the room’s air feels thick with unseen eyes. You recoil, heart hammering, as if the very ink on the page has drawn blood from your mind.
+
+**State Changes:**  
+- SAN decreased by 1 → Current: 37/99  
+- No
+
+--- STATE AFTER: T7 Disturbing Symbols (SANITY 0/1d6 + CHECK) ---
+Location: Spare Bedroom
+Turn: 8
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 37, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 1}
+
+==============================
+TURN: T8 Corbitt Influence Grows (FLAG)
+=== Investigator ===
+While standing in the spare bedroom, I feel a constant oppressive presence,
+as if the house itself is watching me.
+
+For demo purposes, you must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: flag:corbitt_influence=true
+
+After TOOL_RESULT, narrate how this presence affects future exploration
+without directly modifying SAN or HP.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"investigate_presence","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":["flag:corbitt_influence=true"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['flag:corbitt_influence=true']
+[DEBUG] Applied flag: corbitt_influence=true, effects: {'op': 'set_flag', 'key': 'corbitt_influence', 'value': True}, state_patch: {'path': 'game.corbitt_influence', 'set': True}
+
+=== Keeper ===
+The air in the spare bedroom has grown thick and still, as if the walls themselves are holding their breath. The oppressive presence lingers—not a sound, not a shape, but a sensation of being watched from within the very fabric of the room. The flashlight beam trembles slightly in your grip, though you haven’t moved. A cold draft slithers across your neck, despite the window being shut tight. For a fleeting second, the shadow near the far wall seems to deepen, coales
+
+--- STATE AFTER: T8 Corbitt Influence Grows (FLAG) ---
+Location: Spare Bedroom
+Turn: 9
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 37, 'max': 99, 'temp_insanity': False}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'corbitt_influence': True}
+
+==============================
+TURN: T9 Severe Sanity Shock (TEMP INSANITY)
+=== Investigator ===
+The realization of Corbitt’s rituals suddenly clicks together in my mind.
+The implications are horrifying beyond reason.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: sanity:1/1d10
+
+(This large loss is likely to trigger temp_insanity.)
+
+After TOOL_RESULT:
+- Narrate the onset of mental instability.
+- Explicitly summarize current SAN and whether temp insanity is active.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"reality_check_for_corbitt_revelation","scene_id":"Spare Bedroom","proposed_check":"Sanity","stakes":{"on_success":[],"on_failure":[{"effect":"sanity_loss","amount":1},{"effect":"temp_insanity","activate":true},{"effect":"delusion_escalation"}],"effects":[{"type":"sanity","change":1,"source":"reality_check_failure"},{"type":"temp_in
+[DEBUG] tool_call parsed: False
+[DEBUG] No tool call emitted by Keeper; need_tool_call = True
+[DEBUG] tool_call parsed after retry: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Sanity', 'difficulty': 'regular', 'target': 0, 'roll': 10, 'roll_level': 'Failure'}
+[DEBUG] success_level: Failure  outcome: failure
+[DEBUG] chosen_effects: ['sanity:1/1d10']
+[DEBUG] Applied sanity loss_str: 1/1d10, loss: 1d10, loss_val=9, new_san=28, temp_insanity=True
+
+=== Keeper ===
+You barely have time to react. The consequences are immediate.
+
+You notice a creeping sense of unease.
+
+(SAN -9. Your nerves fray.)
+
+What do you do next?
+
+--- STATE AFTER: T9 Severe Sanity Shock (TEMP INSANITY) ---
+Location: Spare Bedroom
+Turn: 10
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 28, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'corbitt_influence': True}
+
+==============================
+TURN: T10 Night Falls (FLAG: night)
+=== Investigator ===
+Time passes, and night fully settles over Corbitt House.
+
+For demo purposes:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: flag:night=true
+
+After TOOL_RESULT:
+- Describe how darkness changes the mood of the house.
+- Do NOT apply SAN or HP changes unless from the tool.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] Temp insanity is active for investigator
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"investigate_the_effects_of_night_on_the_house","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":["flag:night=true"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['flag:night=true']
+[DEBUG] Applied flag: night=true, effects: {'op': 'set_flag', 'key': 'night', 'value': True}, state_patch: {'path': 'game.night', 'set': True}
+
+=== Keeper ===
+The air in the Spare Bedroom has grown heavier, thick with the silence of a house that no longer breathes. The single flicker of your flashlight beam now seems to falter—like something is resisting its light, pressing against the glass of the lens from the outside. The shadows have deepened into pools of absolute black, and though you know the walls are still there, they seem to shift slightly when you’re not looking directly at them. A cold draft slips under the door, carrying a
+
+--- STATE AFTER: T10 Night Falls (FLAG: night) ---
+Location: Spare Bedroom
+Turn: 11
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 28, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'corbitt_influence': True, 'night': True}
+
+==============================
+TURN: T11 NPC Turns Hostile (FLAG)
+=== Investigator ===
+A gaunt, hostile figure steps out of the shadows at the edge of the room,
+blocking the doorway.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects:
+  - flag:npc_hostile=true
+
+After TOOL_RESULT:
+- Narrate the NPC’s hostile posture and intent.
+- Make it clear combat is now possible.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] Temp insanity is active for investigator
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Assess hostile NPC presence and initiate potential combat","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":["flag:npc_hostile=true"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['flag:npc_hostile=true']
+[DEBUG] Applied flag: npc_hostile=true, effects: {'op': 'set_flag', 'key': 'npc_hostile', 'value': True}, state_patch: {'path': 'game.npc_hostile', 'set': True}
+
+=== Keeper ===
+The figure stands silhouetted in the doorway, a gaunt silhouette carved from shadow and malice. Its eyes—two hollow pits of darkness—fix on you with unnerving stillness. The air grows thick, colder than before, as if the room itself resists your breath. A low, guttural sound vibrates through the floorboards, not quite speech, not quite breath—something older, hungrier.
+
+You feel it: the weight of its intent. It does not
+
+--- STATE AFTER: T11 NPC Turns Hostile (FLAG) ---
+Location: Spare Bedroom
+Turn: 12
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 28, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'corbitt_influence': True, 'night': True, 'npc_hostile': True}
+
+==============================
+TURN: T11 NPC Turns Hostile (FLAG)
+=== Investigator ===
+A gaunt, hostile figure steps out of the shadows at the edge of the room,
+blocking the doorway.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects:
+  - flag:npc_hostile=true
+
+After TOOL_RESULT:
+- Narrate the NPC’s hostile posture and intent.
+- Make it clear combat is now possible.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] Temp insanity is active for investigator
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Confront hostile NPC at doorway","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":["flag:npc_hostile=true"]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['flag:npc_hostile=true']
+[DEBUG] Applied flag: npc_hostile=true, effects: {'op': 'set_flag', 'key': 'npc_hostile', 'value': True}, state_patch: {'path': 'game.npc_hostile', 'set': True}
+
+=== Keeper ===
+The figure at the doorway does not speak. It stands rigid, a gaunt silhouette carved from shadow and wrong angles—its limbs too long, its head tilted at an unnatural angle. The air in the room grows colder, thick with the scent of damp earth and old iron. Its hollow eyes fix on you, unblinking, as if already calculating your fear.
+
+You feel a pulse beneath your skin—not from your heart, but from something deeper, older. A whisper in the back of your
+
+--- STATE AFTER: T11 NPC Turns Hostile (FLAG) ---
+Location: Spare Bedroom
+Turn: 13
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 28, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'corbitt_influence': True, 'night': True, 'npc_hostile': True}
+
+==============================
+TURN: T12 Combat Begins (FLAG: combat)
+=== Investigator ===
+The hostile figure suddenly lunges forward, forcing a fight.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects:
+  - flag:combat=true
+
+After TOOL_RESULT:
+- Narrate the transition into active combat.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] Temp insanity is active for investigator
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Initiate combat with hostile figure","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":[{"flag":"combat","value":true}]}},{"name":"resolve_action","arguments":{"intent":"Initiate combat with hostile figure","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":[{"flag":"combat
+[DEBUG] tool_call parsed: False
+[DEBUG] No tool call emitted by Keeper; need_tool_call = True
+[DEBUG] tool_call parsed after retry: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['flag:combat']
+[DEBUG] Applied flag: combat, effects: None, state_patch: None
+
+=== Keeper ===
+The air in the spare bedroom shatters like glass. The hostile figure—its form now indistinct, blurred at the edges as if seen through warped film—lurches forward with unnatural speed, limbs twisting too far at the joints. A low, wet sound escapes it, not quite a growl, more like the creak of old floorboards under something heavy.
+
+Your breath hitches. The flashlight trembles in your grip. The room feels colder—too cold—and the shadows in
+
+--- STATE AFTER: T12 Combat Begins (FLAG: combat) ---
+Location: Spare Bedroom
+Turn: 14
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 28, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'corbitt_influence': True, 'night': True, 'npc_hostile': True}
+
+==============================
+TURN: T13 Combat Dodge (CHECK + HP:-2)
+=== Investigator ===
+The hostile NPC swings violently at me in the darkness.
+I try to Dodge out of the way.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- proposed_check = skill / Dodge / regular
+- stakes.on_failure MUST include: hp:-2
+
+After TOOL_RESULT:
+- Narrate the combat exchange.
+- Summarize HP changes.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] Temp insanity is active for investigator
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"Dodge attempt to avoid a violent swing","scene_id":"Spare Bedroom","proposed_check":"Dodge","stakes":{"on_success":[],"on_failure":[{"hp":-2}],"effects":[]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: {'type': 'skill', 'name': 'Dodge', 'difficulty': 'regular', 'target': 30, 'roll': 13, 'roll_level': 'Hard Success'}
+[DEBUG] success_level: Hard Success  outcome: success
+[DEBUG] chosen_effects: []
+
+=== Keeper ===
+The air shivers as the blade whistles past your ear—so close you feel the ghost of its passage on your skin. Your body twists instinctively, muscles screaming in protest as you dodge sideways into the corner of the room. The wooden doorframe splinters behind you where the swing would have struck had you lingered. A cold draft slithers through the crack beneath the door, carrying with it a faint, metallic scent—like old blood and rust.
+
+Your heart hammers against your
+
+--- STATE AFTER: T13 Combat Dodge (CHECK + HP:-2) ---
+Location: Spare Bedroom
+Turn: 15
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 28, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'corbitt_influence': True, 'night': True, 'npc_hostile': True}
+
+==============================
+TURN: T14 Door Unlocked (FLAG)
+=== Investigator ===
+Amid the chaos, I notice the front door is no longer locked.
+
+For demo purposes:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects:
+  - flag:front_door_unlocked=true
+
+After TOOL_RESULT:
+- Narrate the possibility of escape or repositioning.
+[DEBUG] RAG get 6 docs from DB
+[DEBUG] Temp insanity is active for investigator
+[DEBUG] chat respond-TOOL_CALL: <TOOL_CALL>{"name":"resolve_action","arguments":{"intent":"investigate_front_door","scene_id":"Spare Bedroom","proposed_check":null,"stakes":{"on_success":[],"on_failure":[],"effects":[{"flag":"front_door_unlocked","value":true}]}}}</TOOL_CALL>
+[DEBUG] tool_call parsed: True
+[DEBUG] tool_call name: resolve_action
+[DEBUG] tool_call args keys: ['intent', 'scene_id', 'proposed_check', 'stakes']
+[DEBUG] CHECK: no_check (no proposed_check)
+[DEBUG] success_level: None  outcome: no_check
+[DEBUG] chosen_effects: ['flag:front_door_unlocked']
+[DEBUG] Applied flag: front_door_unlocked, effects: None, state_patch: None
+
+=== Keeper ===
+The front door hangs slightly ajar, as if nudged by a breath or a hand that no longer lingers. The air beyond it is still—too still—carrying the faintest scent of wet brick and something older, like damp paper left too long in a vault. Your pulse stutters. You’ve seen this before: the moment between dread and motion, when the world seems to hold its breath.
+
+A cold draft slips through the crack, brushing your neck with fingers that feel less
+
+--- STATE AFTER: T14 Door Unlocked (FLAG) ---
+Location: Spare Bedroom
+Turn: 16
+HP: {'current': 9, 'max': 11}
+SAN: {'current': 28, 'max': 99, 'temp_insanity': True}
+Inventory: ['Flashlight', 'Notebook', 'Pencil', 'Corbitt Diaries (3 volumes)']
+Clues: ['Corbitt_Diaries']
+Game flags: {'alert_level': 1, 'corbitt_influence': True, 'night': True, 'npc_hostile': True}
+
+✅ Demo complete. You should see MOVE / CLUE / ITEM / SAN / HP / ALERT / FLAG effects reflected in state.

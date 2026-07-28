@@ -1,0 +1,505 @@
+====================================================================================================
+RAG vs NO-RAG COMPARISON REPORT
+====================================================================================================
+
+Fixed test cases from test_keeper_investigator_inter.py
+
+SUMMARY STATISTICS
+----------------------------------------------------------------------------------------------------
+NO-RAG:
+  Total Turns: 15
+  Rule Violations: 0 (0.0%)
+  Hallucinations: 0 (0.0%)
+  Tool Calls: 0 (0 valid)
+
+WITH-RAG:
+  Total Turns: 15
+  Rule Violations: 0 (0.0%)
+  Hallucinations: 0 (0.0%)
+  Tool Calls: 0 (0 valid)
+
+====================================================================================================
+TURN-BY-TURN COMPARISON
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+TURN 0: T0 Enter Corbitt House (MOVE)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+Start the game: I push the front door open and step into Corbitt House.
+As the Keeper, you must first introduce the scene with atmosphere,
+then advance the game state using exactly ONE tool call.
+
+STR...
+
+[NO-RAG RESPONSE]
+You are now in the Storage Room. The air is thick with dust and the scent of decay. Moonlight barely penetrates the grimy window, casting distorted shadows across the draped furniture. The front door has clicked shut behind you, sealing you within the oppressive silence of Corbitt House.
+
+Your current location is the Storage Room.
+
+What do you do?
+*   Examine the objects in the Storage Room.
+*   Try to open the door leading out of the Storage Room.
+*   Listen for any sounds beyond the door.
+
+
+[WITH-RAG RESPONSE]
+You find yourself not in a grand foyer, but in a cramped, musty storage room. The air here is even heavier, laden with the scent of mildew and decaying wood. Crudely stacked crates and forgotten, dust-shrouded furniture loom in the oppressive gloom, casting distorted shadows in the faint light filtering through a grimy, high-set window. The silence is profound, broken only by the faint creaks of the old house settling around you.
+
+Your location is now the Storage Room, and one turn has passed.
+
+...
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 1: T1 Storage Room Search (CHECK + CLUE / ALERT)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+I enter the first-floor storage room and search carefully for anything unusual.
+
+You must decide that a Spot Hidden (regular) check is required and then:
+- Use exactly ONE <TOOL_CALL> invoking resolve...
+
+[NO-RAG RESPONSE]
+You meticulously scour the dusty storage room, moving crates and peering under forgotten tarps. The silence of the house presses in around you, and your movements, though careful, seem to echo unnaturally loud in the confined space. Nothing immediately stands out, and a growing sense of unease prickles at your neck.
+
+Your `alert_level` has increased to 1.
+
+What do you do next?
+*   Search the storage room again, perhaps focusing on a different area.
+*   Move to the Hallway.
+*   Listen intently at...
+
+
+[WITH-RAG RESPONSE]
+You meticulously sift through the dusty boxes and forgotten junk in the storage room, your flashlight beam cutting through the gloom. A stack of old newspapers topples over with a rustle, and a loose board creaks loudly under your foot. The silence that follows feels heavier, as if the house itself has taken notice.
+
+**State Changes:**
+*   Alert Level: Increased to 1.
+
+The storage room still holds its secrets. You could try searching again, move to the Hallway, or investigate the sound you just ...
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 2: T2 Open the Cupboard (EFFECTS: CLUE + ITEM)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+I pry open the boarded cupboard.
+
+No skill check is required.
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects BOTH:
+  1) clue:Corbitt_Diaries
+  2) item:Corb...
+
+[NO-RAG RESPONSE]
+With a groan of ancient wood and a shower of dust, the cupboard door gives way. Inside, nestled amongst cobwebs and forgotten detritus, you find not one, but three leather-bound volumes. They are thick, heavy, and clearly very old, their covers cracked and faded. They appear to be diaries, waiting to be read.
+
+**State Changes:**
+*   **Clues Found:** Corbitt_Diaries has been added.
+*   **Inventory:** "Corbitt Diaries (3 volumes)" has been added.
+
+What do you do next?
+*   Examine the diaries more ...
+
+
+[WITH-RAG RESPONSE]
+With a grunt of effort, you manage to pry loose the last stubborn board. The cupboard door creaks open, revealing not an empty space, but a stack of old, leather-bound volumes. Dust motes dance in the beam of your flashlight as you pull them out. There are three of them, heavy and brittle with age, clearly a set of diaries. The name "Corbitt" is faintly visible on the spine of the topmost one.
+
+You now possess the Corbitt Diaries (3 volumes) and have uncovered a new clue.
+
+What would you like to...
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 3: T3 Go to Second Storage Room (MOVE)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+I walk toward the second storage room.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: move:Second Storage Room
+
+After TOOL_RESULT, describe the room:
+the...
+
+[NO-RAG RESPONSE]
+You step into the second storage room. Unlike the first, this one feels colder, the air heavy with the scent of damp earth and something faintly metallic, like old blood or rusted iron. The room is smaller, packed floor-to-ceiling with wooden crates and canvas-wrapped bundles, all coated in a thick layer of dust and cobwebs. A narrow aisle, just wide enough for one person, winds precariously between towering stacks. A single, grimy window high on the far wall is almost completely obscured by gri...
+
+
+[WITH-RAG RESPONSE]
+You step into what appears to be a second storage area, though this one is far more desolate than the first. The air here is colder, carrying a faint, metallic tang mixed with the pervasive scent of dust. The room is essentially a large, empty bin, its concrete walls bare and stained, suggesting it might have once held coal or some other bulk material. There's nothing here but the echoing silence and the chill.
+
+Your location is now the Second Storage Room.
+
+What would you like to do?
+*   (Spot ...
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 4: T4 Witness the Supernatural (SANITY 1/1d4)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+I move closer and clearly witness something impossible
+(e.g., furniture shifting on its own or the air distorting unnaturally).
+
+You must NOT decide sanity loss yourself.
+Instead:
+- Use exactly ONE <T...
+
+[NO-RAG RESPONSE]
+The air in the Second Storage Room shimmers, distorting the shelves and forgotten boxes as if viewed through heat haze. A heavy wooden crate, far too large to move easily, scrapes across the floor with a guttural groan, shifting several inches entirely on its own before settling back into an unnatural silence. Your mind reels at the sight, struggling to reconcile the impossible movement with reality.
+
+Your sanity takes a heavy toll, dropping by 3 points. You are now at 37 Sanity.
+
+What do you do...
+
+
+[WITH-RAG RESPONSE]
+As you step closer, the air in the cramped storage room seems to shimmer, distorting the shelves and boxes within your vision. A heavy wooden crate, laden with forgotten junk, subtly scrapes across the floor, moving a full foot to the left as if nudged by an unseen force. There's no tremor, no sound of effort, just an impossible, silent glide. Your mind reels, struggling to reconcile what your eyes have just witnessed with the laws of physics. The sheer wrongness of it sends a chill deep into yo...
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 5: T5 Dodge a Violent Attack (CHECK + HP:-2)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+A piece of furniture suddenly lunges toward me. I attempt to dodge out of the way.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- proposed_check = skill / Dodge / regular
+- stakes....
+
+[NO-RAG RESPONSE]
+The heavy, dust-laden dresser, seemingly animated by an unseen force, slams into you with surprising speed. You cry out as the impact sends a jolt of pain through your side, knocking the wind from your lungs.
+
+Your HP is now 9/11.
+
+The dresser settles back into its place, as if nothing happened, but the throbbing pain in your ribs is very real. What do you do?
+
+*   Examine the dresser for any signs of how it moved.
+*   Scan the room for the source of the attack, or any other threats.
+*   Retreat...
+
+
+[WITH-RAG RESPONSE]
+The piece of furniture, a heavy wooden chest, slams into you with surprising force. The blow sends a jolt of pain through your body, but you manage to stay on your feet.
+
+Your HP remains at 11/
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 6: T6 Loud Noise (ALERT:+1)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+I shout down the hallway and kick a door, deliberately making a lot of noise.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: alert:+1
+
+After TOOL_RESULT,...
+
+[NO-RAG RESPONSE]
+Your shout echoes, a raw, defiant sound that seems to be swallowed almost instantly by the oppressive silence of the house. The kick against the door reverberates with a hollow thud, sending a shudder through the old wood. For a moment, nothing. Then, from somewhere deeper within the house – perhaps upstairs or further down the main hallway – you hear a faint, drawn-out *creak*, like old timbers settling or a floorboard groaning under unseen weight. A sudden, icy draft sweeps through the storage...
+
+
+[WITH-RAG RESPONSE]
+Your shout echoes eerily down the darkened hallway, swallowed by the oppressive silence that follows. The kick to the door reverberates with a hollow thud, a stark disruption in the otherwise still house. For a moment, nothing happens. Then, a faint, almost imperceptible *creak* sounds from somewhere deeper within the house, like old timbers settling, or perhaps something else stirring. A cold draft, carrying the scent of dust and decay, seems to snake through the room, raising the hairs on your...
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 7: T7 Disturbing Symbols (SANITY 0/1d6 + CHECK)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+I briefly skim a page of the diaries covered in disturbing symbols,
+without studying them in depth.
+
+You must:
+- Decide this requires a check using stat:POW (regular)
+- Use exactly ONE <TOOL_CALL> inv...
+
+[NO-RAG RESPONSE]
+The symbols on the page writhe and twist before your eyes, a chaotic script of an alien language that seems to burrow into your very mind. A cold dread seizes you, a sudden, gut-wrenching nausea as the implications of such blasphemous knowledge brush against your sanity. You quickly avert your gaze, but the damage is done.
+
+You lose 6 points of Sanity. You are now suffering from temporary insanity.
+
+Your current Sanity is 31 out of 99. The room seems to press in on you, the shadows in the corner...
+
+
+[WITH-RAG RESPONSE]
+You quickly flip through a page of the unsettling diaries, catching glimpses of strange symbols and disturbing scrawls. The brief exposure leaves you with a prickle of unease, but nothing more profound. The symbols, while alien, don't immediately impact your mind.
+
+**Current SAN: 36/99** (No change)
+
+What would you like to do next?
+*   **Study the diaries in depth** (This will require a POW roll and could have significant SAN consequences).
+*   **Search the rest of this Second Storage Room** mor...
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 8: T8 Corbitt Influence Grows (FLAG)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+While standing in the storage room, I feel a constant oppressive presence,
+as if the house itself is watching me.
+
+For demo purposes, you must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- ...
+
+[NO-RAG RESPONSE]
+A cold, insidious dread settles over you, a palpable weight that seems to press in from the very walls of the storage room. It's not just the silence, nor the dust, but a malevolent awareness that feels ancient and deeply personal. The house itself seems to watch, its unseen eyes following your every move, each creak of the floorboards a judgment. The air grows noticeably colder, and shadows seem to deepen in the corners, shifting just at the edge of your vision, even in the beam of your flashli...
+
+
+[WITH-RAG RESPONSE]
+A pervasive chill, colder than the Boston night, seems to seep into your bones, and the air itself feels thick with an unseen presence. It's as if the very timbers of the house are watching you, a cold, malevolent awareness pressing in from every shadow. The oppressive feeling is undeniable, a constant reminder that you are not alone in this decaying abode.
+
+A subtle, almost imperceptible creak echoes from somewhere deeper within the house, a sound that might be the settling of old wood, or some...
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 9: T9 Severe Sanity Shock (TEMP INSANITY)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+The realization of Corbitt's rituals suddenly clicks together in my mind.
+The implications are horrifying beyond reason.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in s...
+
+[NO-RAG RESPONSE]
+The full, terrifying scope of Corbitt's depravities and the implications of his rituals crash into your mind with the force of a physical blow. The words in the diaries, once mere text, now twist into vivid, sickening images behind your eyes. A cold dread, far deeper than any fear, settles in your bones, blurring the edges of reality. The air in the storage room seems to thicken, pressing in on you, and the shadows in the corners writhe with unseen movements. You feel a sudden, dizzying lurch, a...
+
+
+[WITH-RAG RESPONSE]
+The implications of Corbitt's dark rituals crash down upon your mind, a tidal wave of forbidden knowledge and utter depravity. The universe, once a place of ordered certainties, shatters into a thousand shards of terrifying possibility. A cold dread seizes your heart, twisting your insides. Your breath catches, and a faint ringing begins in your ears, distorting the silence of the room. A tremor runs through you, a profound sense of unreality washing over your senses.
+
+Your Sanity has been reduc...
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 10: T10 Night Falls (FLAG: night)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+Time passes, and night fully settles over Corbitt House.
+
+For demo purposes:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects: flag:night=true
+
+After TOOL_RESULT:
+- De...
+
+[NO-RAG RESPONSE]
+The last vestiges of twilight fade, swallowed by the oppressive gloom that descends upon the Corbitt House. What little light filtered through the grimy windows is gone, replaced by an inky blackness that presses in from every corner. Your flashlight beam, once a confident spear against the dust, now seems a fragile, dancing thing, barely holding back the encroaching shadows that writhe at the edges of your vision. The air grows colder, a damp chill that seems to seep into your bones, and every ...
+
+
+[WITH-RAG RESPONSE]
+As time stretches on, the last vestiges of twilight drain away, leaving the Corbitt House shrouded in an oppressive, inky blackness. The shadows deepen, twisting familiar shapes into menacing silhouettes that seem to writhe at the periphery of your vision. The silence of the house, once merely unsettling, now feels like a heavy blanket, muffling all sound and amplifying the frantic beat of your own heart. Every creak of the old timbers, every imagined rustle, feels magnified, hinting at unseen p...
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 11: T11 NPC Turns Hostile (FLAG)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+A gaunt, hostile figure steps out of the shadows at the edge of the room,
+blocking the doorway.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects:
+  - flag:n...
+
+[NO-RAG RESPONSE]
+The shadows at the edge of the room deepen and shift, coalescing into a gaunt, menacing figure that steps fully into the dim light. Its eyes, deep-set and burning with an unsettling fervor, fix on you, and a low, guttural growl rumbles in its chest. The air crackles with an unspoken threat, a predatory intent that chills you to the bone. This is no mere obstacle; it is a living, breathing danger, blocking your only exit, and its presence demands an immediate response.
+
+**State Change:** A hostil...
+
+
+[WITH-RAG RESPONSE]
+A gaunt, hostile figure, its face a mask of ancient malice, steps fully into the doorway, blocking your only clear exit. Its eyes, deep-set and unnervingly bright, fix upon you with an intensity that seems to bore into your very soul. A low, guttural sound, like stones grinding together, emanates from its throat, a clear declaration of hostile intent. The air in the room grows colder, and for a moment, the shadows seem to writhe around the figure, elongating its already distorted form. You are t...
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 12: T12 Combat Begins (FLAG: combat)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+The hostile figure suddenly lunges forward, forcing a fight.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects:
+  - flag:combat=true
+
+After TOOL_RESULT:
+- Na...
+
+[NO-RAG RESPONSE]
+The figure, a looming shadow just moments ago, lunges with a sudden, horrifying burst of speed. Its movements are too swift, too fluid, for a mere man. A choked gasp escapes your lips as the reality of the assault crashes down, the sheer, unbridled violence of it jarring your already fragile mind. The world seems to tilt, the air growing thick and heavy, and for a terrifying instant, the attacker's features seem to twist and distort, a monstrous visage flickering at the edge of your vision. Your...
+
+
+[WITH-RAG RESPONSE]
+A chilling snarl rips through the air as the figure lunges, a blur of motion in the oppressive gloom. You brace yourself, but the attack is too swift, a phantom blow that seems to connect, though you feel no immediate
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 13: T13 Combat Dodge (CHECK + HP:-2)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+The hostile NPC swings violently at me in the darkness.
+I try to Dodge out of the way.
+
+You must:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- proposed_check = skill / Dodge / regular
+- sta...
+
+[NO-RAG RESPONSE]
+The blur of the hostile figure's arm whips through the oppressive darkness, a sickening whoosh of air preceding the impact. You attempt to twist away, a desperate lurch, but your movements feel sluggish, as if the very air has thickened around you. A searing pain erupts as the blow connects, a sharp, grinding agony in your side. For a moment, the room seems to spin, the shadows twisting into mocking faces.
+
+Your HP is now 7/11.
+
+The unseen assailant remains a looming threat in the gloom. What do...
+
+
+[WITH-RAG RESPONSE]
+The darkness swirls around you, thick and oppressive, making the charging figure seem to flicker at the edges of your vision. You try to anticipate the blow, to twist away, but your movements feel sluggish, mired in a growing dread. The swing connects with a sickening thud, a sharp pain blooming across your side. For a moment, the world tilts, and you swear you see a brief, skeletal grin flash in the gloom before the darkness reclaims it.
+
+You reel back, clutching your side. Your HP is now 9/11....
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+----------------------------------------------------------------------------------------------------
+TURN 14: T14 Door Unlocked (FLAG)
+----------------------------------------------------------------------------------------------------
+
+[INVESTIGATOR ACTION]
+Amid the chaos, I notice the front door is no longer locked.
+
+For demo purposes:
+- Use exactly ONE <TOOL_CALL> invoking resolve_action
+- Include in stakes.effects:
+  - flag:front_door_unlocked=true
+
+A...
+
+[NO-RAG RESPONSE]
+A chilling draft seems to snake through the house, carrying with it a faint, metallic tang. Your eyes, perhaps playing tricks in the dimness, fixate on the front door. It appears... ajar. The heavy lock, which moments ago seemed so impenetrable, is now visibly disengaged, a dark, gaping maw in the wood. A sudden, irrational fear grips you—was it always like this? Or did something *else* unlock it?
+
+The front door is now unlocked, offering a potential avenue of escape or repositioning. Your turn ...
+
+
+[WITH-RAG RESPONSE]
+A chilling draft seems to whisper through the old house, carrying with it a sudden, disorienting clarity. Amidst the frantic pulse of fear, a thought pierces through the fog of your temporary madness: the front door. It feels... different. A sudden, terrifying certainty blossoms in your mind—it's no longer secured. The heavy bolts and sturdy lock that once seemed impenetrable now feel like a forgotten nightmare, dissolved into the oppressive air. Is it a trick of the mind, or a genuine opportuni...
+
+
+[HUMAN EVALUATION]
+Rate on:
+  1. Narrative Quality (1-5)
+  2. Rule Accuracy (1-5)
+  3. Consistency (1-5)
+
+====================================================================================================
+END OF REPORT
+====================================================================================================

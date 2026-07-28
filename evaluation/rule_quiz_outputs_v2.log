@@ -1,0 +1,26 @@
+STARTING RULE QUIZ (RAG RETRIEVAL TEST)
+
+Configuration: k=20, use_rerank=True, category=None (searching both rule_system and scenario_data)
+
+✅ Q1: Passed
+✅ Q2: Passed
+✅ Q3: Passed
+✅ Q4: Passed
+✅ Q5: Passed
+✅ Q6: Passed
+✅ Q7: Passed
+✅ Q8: Passed
+✅ Q9: Passed
+✅ Q10: Passed
+✅ Q11: Passed
+✅ Q12: Passed
+✅ Q13: Passed
+✅ Q14: Passed
+✅ Q15: Passed
+✅ Q16: Passed
+✅ Q17: Passed
+✅ Q18: Passed
+✅ Q19: Passed
+✅ Q20: Passed
+
+FINAL SCORE: 20/20

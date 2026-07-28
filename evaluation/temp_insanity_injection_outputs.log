@@ -1,0 +1,12 @@
+
+========================================================================
+QUALITATIVE TEST: Temporary Insanity Prompt Injection
+========================================================================
+
+Using LLM provider:gemini
+✅ Test 1: Normal state does not include temp_insanity special instructions
+[DEBUG] Temp insanity is active for investigator
+✅ Test 2: Temp_insanity=true includes special narration instructions
+   Found relevant instruction in system prompt
+
+PROMPT INJECTION TEST SCORE: 2/2
